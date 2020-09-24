@@ -25,3 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/estudiantes/create', 'EstudianteController@create');
 Route::resource('estudiantes', 'EstudianteController');
 Route::patch('estudiantes/{id}/edit', 'EstudianteController@update')->name('estudiantes.update');
+
+Route::resource('estudiantes1', 'Estudiantes1Controller');
+Route::patch('estudiantes1/{id}/edit', 'Estudiantes1eController@update')->name('estudiantes1.update');
+
+Route::resource('estudiosocioeconimico', 'EstudioSocioeconimicoController');
+Route::patch('estudiosocioeconimico/{id}/edit', 'EstudioSocioeconimicoController@update')->name('estudiosocioeconimico.update');
