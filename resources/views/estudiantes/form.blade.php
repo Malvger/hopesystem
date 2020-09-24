@@ -26,7 +26,7 @@
     $('.nav-tabs > .active').prev('li').find('a').trigger('click');
   });
   </script> --}}
-    {{--
+{{--
   <nav>
     <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="datos-estudiantes" data-toggle="tab" href="#nav-estudiantes" role="tab" aria-controls="nav-estudiantes" aria-selected="true">Datos del Estudiente</a>
@@ -41,7 +41,7 @@
     <div class="tab-pane fade" id="nav-dFamiliar" role="tabpanel" aria-labelledby="nav-dFamiliar-tab">@include('estudiantes.formdf')</div>
     <div class="tab-pane fade" id="nav-observaciones" role="tabpanel" aria-labelledby="nav-observaciones-tab">@include('estudiantes.formo')</div>
   </div>
-  --}}
+--}}
 
 <!-- Gustavo's code -->
 
@@ -62,6 +62,10 @@
 
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 <script>
+  /*
+  * @method selecciona un tab de acuerdo al nombre.
+  * @param tab nombre del tab que se desea seleccionar.
+  */
   function selectTab(tab){
     $('.nav-tabs a[href="#' + tab + '"]').tab('show');
   };
