@@ -12,14 +12,6 @@
                         {{ csrf_field() }}
                         {{method_field('PATCH')}}
                         @include('estudiantes.form', ['Modo'=>'modificar'])
-                        
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Guardar') }}
-                                </button>
-                            </div>
-                        </div>
                     </form>
                 </div>
             </div>
