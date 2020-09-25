@@ -1,4 +1,5 @@
 
+
   <nav>
     <div class="nav nav-tabs nav-justified" id="tabs" role="tablist">
       <a class="nav-item nav-link active" id="datos-estudiantes" data-toggle="tab" href="#nav-estudiantes" role="tab" aria-controls="nav-estudiantes" aria-selected="true">Datos del Estudiente</a>
@@ -16,6 +17,10 @@
 
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 <script>
+  /*
+  * @method selecciona un tab de acuerdo al nombre.
+  * @param tab nombre del tab que se desea seleccionar.
+  */
   function selectTab(tab){
     $('.nav-tabs a[href="#' + tab + '"]').tab('show');
   };
