@@ -45,6 +45,15 @@ class CreateEstudiantes1sTable extends Migration
             $table->boolean('RepitenteNo');
             $table->integer('Noveces');
 
+            /** SALUD FÍSICA Y PSICOLÓGICA */
+            $table->string('ProbSaludEstudiante');
+            $table->string('ProbSaludHogar');
+            $table->string('NombProbSaludHogar');
+            
+            $table->string('DiscEstudiante');
+            $table->string('CertificadoDiscapacidad');
+            $table->string('DiscFamilia');
+
             $table->mediumText('Observaciones');
 
             $table->timestamps();
