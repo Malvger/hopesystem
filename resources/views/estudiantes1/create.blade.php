@@ -5,13 +5,12 @@
     <div class="row justify-content-center">
         <div class="container-fluid">
             <div class="card">
-                <div class="card-header">{{ __('Datos del Estudiente Nivel Preprimaria y Primero') }}</div>
+                <div class="card-header">{{ __('Datos del Estudiente Nivel Medio, Ciclo Diversificado') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('estudiantes/'.$estudiante->id.'/edit') }}">
+                    <form method="POST" action="{{ url('/estudiantes1') }}">
                         {{ csrf_field() }}
-                        {{method_field('PATCH')}}
-                        @include('estudiantes.form', ['Modo'=>'modificar'])
+                        @include('estudiantes.form', ['Modo'=>'crear'])
                     </form>
                 </div>
             </div>
