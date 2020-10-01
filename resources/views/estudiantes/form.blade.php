@@ -63,8 +63,8 @@
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 <script>
   /*
-  * @method selecciona un tab de acuerdo al nombre.
-  * @param tab nombre del tab que se desea seleccionar.
+  * Método para seleccionar un tab de acuerdo al nombre.
+  * param tab nombre del tab que se desea seleccionar.
   */
   function selectTab(tab){
     $('.nav-tabs a[href="#' + tab + '"]').tab('show');
