@@ -14,11 +14,11 @@
             </td>
             <td >
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="checkes">
+                    <input type="checkbox" class="form-check-input">
                 </div>
             </td>
             <td>
-              <input type="text" id="ProbSaludEstudiante" name="ProbSaludEstudiante" placeholder="Especifique" class="form-control">
+                <input type="text" id="ProbSaludEstudiante" name="ProbSaludEstudiante" placeholder="Especifique" class="form-control">
             </td>
         </tr>
         <tr>
@@ -62,7 +62,14 @@
             </td>
             <td>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" id="Eprobsalud">
+                    <label class="form-check-label" for="exampleCheck1">Si</label>
+                </div>
+            </td>
+            <td>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="Eprobsalud">
+                    <label class="form-check-label" for="exampleCheck1">No</label>
                 </div>
             </td>
         </tr>
@@ -74,7 +81,14 @@
             </td>
             <td>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" id="Mprobsalud">
+                    <label class="form-check-label" for="exampleCheck1">Si</label>
+                </div>
+            </td>
+            <td>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="Mprobsalud">
+                    <label class="form-check-label" for="exampleCheck1">No</label>
                 </div>
             </td>
         </tr>
@@ -86,12 +100,20 @@
             </td>
             <td>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" id="Mprobsalud">
+                    <label class="form-check-label" for="exampleCheck1">Si</label>
+                </div>
+            </td>
+            <td>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="Mprobsalud">
+                    <label class="form-check-label" for="exampleCheck1">No</label>
                 </div>
             </td>
         </tr>
     </tbody>
 </table>
+
 
 <!--Gustavo's changing tabs code-->
 
