@@ -17,7 +17,7 @@
 
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 <script>
-  
+
   function selectTab(tab){
     $('.nav-tabs a[href="#' + tab + '"]').tab('show');
   };
