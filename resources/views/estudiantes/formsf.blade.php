@@ -18,15 +18,8 @@
                 </div>
             </td>
             <td>
-                <input type="text" id="ProbSaludEstudiante" name="ProbSaludEstudiante" placeholder="Especifique" class="form-control">
+              <input type="text" id="ProbSaludEstudiante" name="ProbSaludEstudiante" placeholder="Especifique" class="form-control">
             </td>
-            <script>
-                if(document.getElementById('checkes').checked){
-                    document.getElementById('ProbSaludEstudiante').show();
-                }else{
-                    document.getElementById('ProbSaludEstudiante').hide();
-                }
-            </script>
         </tr>
         <tr>
             <td>
