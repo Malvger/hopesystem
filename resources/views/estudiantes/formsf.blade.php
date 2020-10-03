@@ -1,7 +1,7 @@
 <br>
 <table class="table table-bordered" width="100%" cellspacing="0">
     <tbody>
-            <tr class="bg-primary text-white text-center">
+            <tr class="bg-secondary text-white text-center">
                 <td>{{ __('Salud Física') }}</td>
             </tr>
         </tbody>
@@ -12,26 +12,28 @@
             <td>
                 {{ __('¿El estudiante sufre algún problema de salud?')}}
             </td>
-            <td >
+            {{-- <td >
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="checkes">
                 </div>
-            </td>
+            </td> --}}
             <td>
-              <input type="text" id="ProbSaludEstudiante" name="ProbSaludEstudiante" placeholder="Especifique" class="form-control">
+              <input type="text" id="ProbSaludEstudiante" name="ProbSaludEstudiante" placeholder="Especifique" class="form-control" 
+                value="{{isset($estudiante->ProbSaludEstudiante)?$estudiante->ProbSaludEstudiante:'' }}">
             </td>
         </tr>
         <tr>
             <td>
                 {{ __('¿Algún miembro que conforma su hogar presenta un problema de salud?')}}
             </td>
-            <td>
+            {{-- <td>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input">
                 </div>
-            </td>
+            </td> --}}
             <td>
-                <input type="text" id="ProbSaludHogar" name="ProbSaludHogar" placeholder="Especifique" class="form-control">
+                <input type="text" id="ProbSaludHogar" name="ProbSaludHogar" placeholder="Especifique" class="form-control"
+                value="{{isset($estudiante->ProbSaludHogar)?$estudiante->ProbSaludHogar:'' }}">
             </td>
         </tr>
         <tr>
@@ -39,7 +41,8 @@
                 {{'Si la respuesta es si, ¿a qué miembro que conforma su hogar afecta la enfermedad?'}}
             </td>
             <td colspan="3">
-                <input type="text" id="NombProbSaludHogar" name="NombProbSaludHogar" placeholder="Nombres y Apellidos" class="form-control">
+                <input type="text" id="NombProbSaludHogar" name="NombProbSaludHogar" placeholder="Nombres y Apellidos" class="form-control"
+                value="{{isset($estudiante->NombProbSaludHogar)?$estudiante->NombProbSaludHogar:'' }}">
             </td>
         </tr>
     </tbody>
@@ -47,7 +50,7 @@
 
 <table class="table table-bordered" width="100%" cellspacing="0">
     <tbody>
-        <tr class="bg-primary text-white text-center">
+        <tr class="bg-secondary text-white text-center">
             <td>{{__('Salud Psicológica')}}</td>
         </tr>
     </tbody>
@@ -58,37 +61,41 @@
             <td>
                 {{__('¿El estudiante presenta algún tipo de discapacidad?')}}
                 <br>
-                <input type="text" id="DiscEstudiante" name="DiscEstudiante" class="form-control" placeholder="Especifique">
+                <input type="text" id="DiscEstudiante" name="DiscEstudiante" class="form-control" placeholder="Especifique"
+                value="{{isset($estudiante->DiscEstudiante)?$estudiante->DiscEstudiante:'' }}">
             </td>
-            <td>
+            {{-- <td>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input">
                 </div>
-            </td>
+            </td> --}}
         </tr>
         <tr>
             <td>
                 {{__('¿En caso de existir discapacidad ¿cuentan con algún certificado u otro documento que acredite la discapacidad?')}}
                 <br>
-                <input type="text" id="CertificadoDiscapacidad" name="CertificadoDiscapacidad" class="form-control" placeholder="De no contar con el certificado de discapacidad, señale el motivo">
+                <input type="text" id="CertificadoDiscapacidad" name="CertificadoDiscapacidad" class="form-control" placeholder="De no contar con el certificado de discapacidad, señale el motivo"
+                value="{{isset($estudiante->CertificadoDiscapacidad)?$estudiante->CertificadoDiscapacidad:'' }}">
             </td>
-            <td>
+            {{-- <td>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input">
                 </div>
-            </td>
+            </td> --}}
         </tr>
         <tr>
             <td>
                 {{__('Además del estudiante ¿otro miembro de la familia presenta discapacidad?')}}
                 <br>
-                <input id="DiscFamilia" name="DiscFamilia" type="text" class="form-control" placeholder="Especifique">
+                <input id="DiscFamilia" name="DiscFamilia" type="text" class="form-control" placeholder="Especifique"
+                value="{{isset($estudiante->DiscFamilia)?$estudiante->DiscFamilia:'' }}">
+
             </td>
-            <td>
+            {{-- <td>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input">
                 </div>
-            </td>
+            </td> --}}
         </tr>
     </tbody>
 </table>
