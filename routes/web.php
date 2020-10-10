@@ -27,7 +27,7 @@ Route::resource('estudiantes', 'EstudianteController');
 Route::patch('estudiantes/{id}/edit', 'EstudianteController@update')->name('estudiantes.update');
 
 Route::resource('estudiantes1', 'Estudiantes1Controller');
-Route::patch('estudiantes1/{id}/edit', 'Estudiantes1eController@update')->name('estudiantes1.update');
+Route::patch('estudiantes1/{id}/edit', 'Estudiantes1Controller@update')->name('estudiantes1.update');
 
 //route socioeconomico
 //comit 2

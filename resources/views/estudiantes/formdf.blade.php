@@ -1,26 +1,20 @@
 
-<form action="{{ url('/estudiantes') }}" method="post">
-
-    {{csrf_field()}} <!--Token de Seguridad-->
-
-
-
 <div class="table-responsive">
 <table class="table table-bordered" width="100%" cellspacing="0">
     <thead>
       <tr class="bg-secondary text-white"> <!--Filas-->
         <th scope="col">¿Presenta algún problema familiar que desee poner en conocimiento de las autoridades del Centro Educativo?</th> <!--Encabezados-->
-
         <th scope="col">Si la respuesta es si explique</th>
-        
-      </>
       <tr>
           <td>
-            <input id="ProblemaFamiliarSi" type="checkbox" class="form-control" name="ProblemaFamiliarSi">
+            <input id="ProblemaFamiliarSi" type="checkbox" class="form-control" name="ProblemaFamiliarSi"
+            {{isset($estudiante->ProblemaFamiliarSi)?$estudiante->ProblemaFamiliarSi=='1'?'checked':'':'' }}
+                    value="1">
           </td>
 
           <td>
-            <input id="Explique" type="text" class="form-control" name="Explique"> 
+            <input id="Explique" type="text" class="form-control" name="Explique"
+            value="{{isset($estudiante->Explique)?$estudiante->Explique:'' }}"> 
           </td>
       </tr>
     </thead>
@@ -35,11 +29,14 @@
         </tr>
         <tr>
             <td>
-              <input id="PadreSeparadosSi" type="checkbox" class="form-control" name="PadresSeparadosSi">
+              <input id="PadresSeparadosSi" type="checkbox" class="form-control" name="PadresSeparadosSi"
+              {{isset($estudiante->PadresSeparadosSi)?$estudiante->PadresSeparadosSi=='1'?'checked':'':'' }}
+                    value="1">
             </td>
   
             <td>
-              <input id="Razones" type="text" class="form-control" name="Razones"> 
+              <input id="Razones" type="text" class="form-control" name="Razones"
+              value="{{isset($estudiante->Razones)?$estudiante->Razones:'' }}"> 
             </td>
         </tr>
       </thead>
@@ -59,7 +56,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <input id="Razones" type="text" class="form-control" name="Razones"> 
+                        <input id="RazonesPorque" type="text" class="form-control" name="RazonesPorque"
+                        value="{{isset($estudiante->RazonesPorque)?$estudiante->RazonesPorque:'' }}"> 
                     </td>
         
         </thead>
@@ -81,11 +79,15 @@
       </tr>
       <tr>
           <td>
-            <input id="ProblemaFamiliarSi" type="checkbox" class="form-control" name="ProblemaFamiliarSi">
+            <input id="CertificadoRENAP" type="checkbox" class="form-control" name="CertificadoRENAP"
+            {{isset($estudiante->CertificadoRENAP)?$estudiante->CertificadoRENAP=='1'?'checked':'':'' }}
+            value="1">
           </td>
 
           <td>
-            <input id="ProblemaFamiliarSi" type="checkbox" class="form-control" name="ProblemaFamiliarSi">
+            <input id="DPIPapa" type="checkbox" class="form-control" name="DPIPapa"
+            {{isset($estudiante->DPIPapa)?$estudiante->DPIPapa=='1'?'checked':'':'' }}
+            value="1">
           </td>
       </tr>
     </thead>
@@ -100,11 +102,15 @@
         </tr>
         <tr>
             <td>
-              <input id="PadreSeparadosSi" type="checkbox" class="form-control" name="PadresSeparadosSi">
+              <input id="vacunacion" type="checkbox" class="form-control" name="vacunacion"
+              {{isset($estudiante->vacunacion)?$estudiante->vacunacion=='1'?'checked':'':'' }}
+            value="1">
             </td>
   
             <td>
-                <input id="PadreSeparadosSi" type="checkbox" class="form-control" name="PadresSeparadosSi">
+                <input id="DPIMama" type="checkbox" class="form-control" name="DPIMama"
+                {{isset($estudiante->DPIMama)?$estudiante->DPIMama=='1'?'checked':'':'' }}
+            value="1">
             </td>
         </tr>
       </thead>
@@ -118,10 +124,14 @@
         </tr>
         <tr>
             <td>
-                <input id="PadreSeparadosSi" type="checkbox" class="form-control" name="PadresSeparadosSi">
+                <input id="diplomapre" type="checkbox" class="form-control" name="diplomapre"
+                {{isset($estudiante->diplomapre)?$estudiante->diplomapre=='1'?'checked':'':'' }}
+            value="1">
             </td>
             <td>
-                <input id="PadreSeparadosSi" type="checkbox" class="form-control" name="PadresSeparadosSi"> 
+                <input id="DPISi" type="checkbox" class="form-control" name="DPISi"
+                {{isset($estudiante->DPISi)?$estudiante->DPISi=='1'?'checked':'':'' }}
+            value="1"> 
             </td>
 
         </tr>
@@ -136,10 +146,14 @@
         </tr>
         <tr>
             <td>
-                <input id="PadreSeparadosSi" type="checkbox" class="form-control" name="PadresSeparadosSi">
+                <input id="codigopersonalSi" type="checkbox" class="form-control" name="codigopersonalSi"
+                {{isset($estudiante->codigopersonalSi)?$estudiante->codigopersonalSi=='1'?'checked':'':'' }}
+            value="1">
             </td>
             <td>
-                <input id="PadreSeparadosSi" type="checkbox" class="form-control" name="PadresSeparadosSi"> 
+                <input id="buenaConductaSi" type="checkbox" class="form-control" name="buenaConductaSi"
+                {{isset($estudiante->buenaConductaSi)?$estudiante->buenaConductaSi=='1'?'checked':'':'' }}
+            value="1"> 
             </td>
 
         </tr>
@@ -160,7 +174,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <input id="PadreSeparadosSi" type="checkbox" class="form-control" name="PadresSeparadosSi">
+                        <input id="certificadoOriginal" type="checkbox" class="form-control" name="certificadoOriginal"
+                        {{isset($estudiante->certificadoOriginal)?$estudiante->certificadoOriginal=='1'?'checked':'':'' }}
+            value="1">
                     </td>
         
         </thead>

@@ -53,6 +53,23 @@ class CreateEstudiantes1sTable extends Migration
             $table->string('DiscEstudiante');
             $table->string('CertificadoDiscapacidad');
             $table->string('DiscFamilia');
+            /** Dinaminca familiar  */
+            $table->boolean('ProblemaFamiliarSi');
+            $table->string('Explique');
+            $table->boolean('PadresSeparadosSi');
+            $table->boolean('DPISi');
+            $table->string('Razones');
+            $table->string('RazonesPorque');
+            $table->boolean('CertificadoRENAP');
+            $table->boolean('DPIPapa');
+            $table->boolean('vacunacion');
+            $table->boolean('DPIMama');
+            $table->boolean('codigopersonalSi');
+            $table->boolean('buenaConductaSi');
+            $table->boolean('diplomapre');
+            $table->boolean('certificadoOriginal');
+
+            //** Observaciones  */
 
             $table->mediumText('Observaciones');
 
