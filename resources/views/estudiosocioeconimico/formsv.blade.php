@@ -37,8 +37,8 @@
                 </td>
       
                 <td>
-                    <input id="PropiaSi" type="checkbox" class="form-control" name="PropiaSi"
-                    {{isset($estudioS->PropiaSi)?$estudioS->PropiaSi=='1'?'checked':'':'' }}
+                    <input id="PropiaS" type="checkbox" class="form-control" name="PropiaS"
+                    {{isset($estudioS->PropiaS)?$estudioS->PropiaS=='1'?'checked':'':'' }}
                           value="1">
                 </td>
             </tr>

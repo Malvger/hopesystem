@@ -19,12 +19,23 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
                 @foreach ($estudiosocioeconimico as $estudio)            
                 <tr>
-
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$estudio->NombreApellido}}</td>
+                    <td><a href="{{url('/estudiosocioeconimico/'.$estudio->id.'/edit')}}"> Editar </a>
+        
+                    {{-- <form method="POST" accept="{{url('/estudiosocioeconimico/'.$estudio->id)}}" >
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <button type="submit" onclick="return confirm('Borrar?')">Borrar</button>
+                    </form> --}}
                     </td>
                 </tr>
 

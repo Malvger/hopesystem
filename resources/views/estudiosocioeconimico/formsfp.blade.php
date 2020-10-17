@@ -13,8 +13,8 @@
 
           <tr>
               <td>
-                    <input id="ProblemaSaludSi" type="checkbox" class="form-control" name="ProblemaSaludSi"
-                    {{isset($estudioS->ProblemaSaludSi)?$estudioS->ProblemaSaludSi=='1'?      'checked':'':'' }}
+                    <input id="problemasSalud" type="checkbox" class="form-control" name="problemasSalud"
+                    {{isset($estudioS->problemasSalud)?$estudioS->problemasSalud=='1'?      'checked':'':'' }}
                     value="1">
               </td>
     
@@ -40,8 +40,8 @@
                 </td>
       
                 <td>
-                  <input id="Especifique" type="text" class="form-control" name="Especifique"
-                  value="{{isset($estudioS->Especifique)?$estudioS->Especifique:'' }}"> 
+                  <input id="Especifice01" type="text" class="form-control" name="Especifice01"
+                  value="{{isset($estudioS->Especifice01)?$estudioS->Especifice01:'' }}"> 
                 </td>
             </tr>
         </thead>
@@ -88,8 +88,8 @@
               </td>
     
               <td>
-                <input id="Especifique" type="text" class="form-control" name="Especifique"
-                value="{{isset($estudioS->Especifique)?$estudioS->Especifique:'' }}"> 
+                <input id="Espesifique02" type="text" class="form-control" name="Espesifique02"
+                value="{{isset($estudioS->Espesifique02)?$estudioS->Espesifique02:'' }}"> 
               </td>
           </tr>
         </thead>

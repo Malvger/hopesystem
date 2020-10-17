@@ -94,7 +94,6 @@ class EstudianteController extends Controller
         $datosEstudiante['RepitenteNo']=isset($datosEstudiante['RepitenteNo'])?'1':'0';
 
 
-
         $datosEstudiante['DPISi']=isset($datosEstudiante['DPISi'])?'1':'0';
         $datosEstudiante['ProblemaFamiliarSi']=isset($datosEstudiante['ProblemaFamiliarSi'])?'1':'0';
         $datosEstudiante['PadresSeparadosSi']=isset($datosEstudiante['PadresSeparadosSi'])?'1':'0';

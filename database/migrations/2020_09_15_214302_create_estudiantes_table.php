@@ -16,63 +16,63 @@ class CreateEstudiantesTable extends Migration
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('PrimerNombre');
-            $table->string('SegundoNombre');
-            $table->string('ApellidoPaterno');
+            $table->string('SegundoNombre')->nullable();
+            $table->string('ApellidoPaterno')->nullable();
             $table->string('ApellidoMaterno');
             $table->string('Sexo');
             $table->integer('Edad');
-            $table->string('CUI');
-            $table->string('ComunidadEtnica');
-            $table->string('LugarNacimiento');
-            $table->date('FechaNacimiento');
-            $table->string('IdiomaMaterno');
-            $table->string('SugundoIdioma');
+            $table->string('CUI')->unique();
+            $table->string('ComunidadEtnica')->nullable();
+            $table->string('LugarNacimiento')->nullable();
+            $table->date('FechaNacimiento')->nullable();
+            $table->string('IdiomaMaterno')->nullable();
+            $table->string('SugundoIdioma')->nullable();
 
-            $table->string('NombreApellidoMadre');
-            $table->string('NombreApellidoPadre');
-            $table->string('DPIMadre');
-            $table->string('TelMadre');
-            $table->string('DPIPadre');
-            $table->string('TelPadre');
-            $table->string('NombreApellidoEncargado');
-            $table->string('DPIMadreEncargado');
-            $table->string('TelMadreEncargado');
-            $table->string('DireccionDomicilioEstudiante');
+            $table->string('NombreApellidoMadre')->nullable();
+            $table->string('NombreApellidoPadre')->nullable();
+            $table->string('DPIMadre')->nullable();
+            $table->string('TelMadre')->nullable();
+            $table->string('DPIPadre')->nullable();
+            $table->string('TelPadre')->nullable();
+            $table->string('NombreApellidoEncargado')->nullable();
+            $table->string('DPIMadreEncargado')->nullable();
+            $table->string('TelMadreEncargado')->nullable();
+            $table->string('DireccionDomicilioEstudiante')->nullable();
             
-            $table->string('EstablecimientoProviene');
-            $table->string('GradoIngresar');
-            $table->boolean('RepitenteSi');
-            $table->boolean('RepitenteNo');
-            $table->integer('Noveces');
+            $table->string('EstablecimientoProviene')->nullable();
+            $table->string('GradoIngresar')->nullable();
+            $table->boolean('RepitenteSi')->nullable();
+            $table->boolean('RepitenteNo')->nullable();
+            $table->integer('Noveces')->nullable();
 
             /** SALUD FÍSICA Y PSICOLÓGICA */
-            $table->string('ProbSaludEstudiante');
-            $table->string('ProbSaludHogar');
-            $table->string('NombProbSaludHogar');
+            $table->string('ProbSaludEstudiante')->nullable();
+            $table->string('ProbSaludHogar')->nullable();
+            $table->string('NombProbSaludHogar')->nullable();
             
-            $table->string('DiscEstudiante');
-            $table->string('CertificadoDiscapacidad');
-            $table->string('DiscFamilia');
+            $table->string('DiscEstudiante')->nullable();
+            $table->string('CertificadoDiscapacidad')->nullable();
+            $table->string('DiscFamilia')->nullable();
             
             /** Dinaminca familiar  */
-            $table->boolean('ProblemaFamiliarSi');
-            $table->string('Explique');
-            $table->boolean('PadresSeparadosSi');
-            $table->boolean('DPISi');
-            $table->string('Razones');
-            $table->string('RazonesPorque');
-            $table->boolean('CertificadoRENAP');
-            $table->boolean('DPIPapa');
-            $table->boolean('vacunacion');
-            $table->boolean('DPIMama');
-            $table->boolean('codigopersonalSi');
-            $table->boolean('buenaConductaSi');
-            $table->boolean('diplomapre');
-            $table->boolean('certificadoOriginal');
+            $table->boolean('ProblemaFamiliarSi')->nullable();
+            $table->string('Explique')->nullable();
+            $table->boolean('PadresSeparadosSi')->nullable();
+            $table->boolean('DPISi')->nullable();
+            $table->string('Razones')->nullable();
+            $table->string('RazonesPorque')->nullable();
+            $table->boolean('CertificadoRENAP')->nullable();
+            $table->boolean('DPIPapa')->nullable();
+            $table->boolean('vacunacion')->nullable();
+            $table->boolean('DPIMama')->nullable();
+            $table->boolean('codigopersonalSi')->nullable();
+            $table->boolean('buenaConductaSi')->nullable();
+            $table->boolean('diplomapre')->nullable();
+            $table->boolean('certificadoOriginal')->nullable();
 
             //** Observaciones  */
 
-            $table->mediumText('Observaciones');
+            $table->mediumText('Observaciones')->nullable();
 
             $table->timestamps();
         });
