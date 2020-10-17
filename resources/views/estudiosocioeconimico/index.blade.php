@@ -28,7 +28,7 @@
                 @foreach ($estudiosocioeconimico as $estudio)            
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$estudio->NombreApellido}}</td>
+                    <td>{{$estudio->Apellidos}}, {{$estudio->Nombres}}</td>
                     <td><a href="{{url('/estudiosocioeconimico/'.$estudio->id.'/edit')}}"> Editar </a>
         
                     {{-- <form method="POST" accept="{{url('/estudiosocioeconimico/'.$estudio->id)}}" >

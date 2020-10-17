@@ -1,9 +1,9 @@
   <nav>
     <div class="nav nav-tabs nav-justified" id="tabs" role="tablist">
-      <a class="nav-item nav-link active" id="datos-estudiantes" data-toggle="tab" href="#nav-estudiantes" role="tab" aria-controls="nav-estudiantes" aria-selected="true">Datos del Responsable de la Familia</a>
-      <a class="nav-item nav-link" id="nav-sFisica-tab" data-toggle="tab" href="#nav-sFisica" role="tab" aria-controls="nav-sFisica" aria-selected="false">Salud Física y Psicológica</a>
-      <a class="nav-item nav-link" id="nav-dFamiliar-tab" data-toggle="tab" href="#nav-dFamiliar" role="tab" aria-controls="nav-dFamiliar" aria-selected="false"> Situación de la Vivienda</a>
-      <a class="nav-item nav-link" id="nav-observaciones-tab" data-toggle="tab" href="#nav-observaciones" role="tab" aria-controls="nav-observaciones" aria-selected="false">Servicios Básicos</a>
+      <a class="nav-item nav-link active" id="datos-estudiantes" data-toggle="tab" href="#nav-estudiantes" role="tab" aria-controls="nav-estudiantes" aria-selected="true">DATOS DE RESPONSABLE DE LA FAMILIA</a>
+      <a class="nav-item nav-link" id="nav-sFisica-tab" data-toggle="tab" href="#nav-sFisica" role="tab" aria-controls="nav-sFisica" aria-selected="false">SALUD FÍSICA Y PSICOLÓGICA </a>
+      <a class="nav-item nav-link" id="nav-dFamiliar-tab" data-toggle="tab" href="#nav-dFamiliar" role="tab" aria-controls="nav-dFamiliar" aria-selected="false">SITUACIÓN DE LA VIVIENDO </a>
+      <a class="nav-item nav-link" id="nav-observaciones-tab" data-toggle="tab" href="#nav-observaciones" role="tab" aria-controls="nav-observaciones" aria-selected="false">SERVICIOS BÁSICOS </a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">

@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 10-10-2020 a las 02:53:52
--- Versión del servidor: 5.6.47
+-- Tiempo de generación: 17-10-2020 a las 21:09:52
+-- Versión del servidor: 5.6.49
 -- Versión de PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -86,16 +86,11 @@ CREATE TABLE `estudiantes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Truncar tablas antes de insertar `estudiantes`
---
-
-TRUNCATE TABLE `estudiantes`;
---
 -- Volcado de datos para la tabla `estudiantes`
 --
 
 INSERT INTO `estudiantes` (`id`, `PrimerNombre`, `SegundoNombre`, `ApellidoPaterno`, `ApellidoMaterno`, `Sexo`, `Edad`, `CUI`, `ComunidadEtnica`, `LugarNacimiento`, `FechaNacimiento`, `IdiomaMaterno`, `SugundoIdioma`, `NombreApellidoMadre`, `NombreApellidoPadre`, `DPIMadre`, `TelMadre`, `DPIPadre`, `TelPadre`, `NombreApellidoEncargado`, `DPIMadreEncargado`, `TelMadreEncargado`, `DireccionDomicilioEstudiante`, `EstablecimientoProviene`, `GradoIngresar`, `RepitenteSi`, `RepitenteNo`, `Noveces`, `ProbSaludEstudiante`, `ProbSaludHogar`, `NombProbSaludHogar`, `DiscEstudiante`, `CertificadoDiscapacidad`, `DiscFamilia`, `ProblemaFamiliarSi`, `Explique`, `PadresSeparadosSi`, `DPISi`, `Razones`, `RazonesPorque`, `CertificadoRENAP`, `DPIPapa`, `vacunacion`, `DPIMama`, `codigopersonalSi`, `buenaConductaSi`, `diplomapre`, `certificadoOriginal`, `Observaciones`, `created_at`, `updated_at`) VALUES
-(1, 'Juan', 'Miguel', 'Perez', 'Garcia', 'Masculino', 14, '546546515', 'Maya', 'Coban', '2009-02-15', 'Español', 'Español', 'Carla Garcia', 'Carlos Perez', '5465465456', '56465465', '4654654', '46546489', 'Carlos miquel', 'j65464', '65465465', 'Coban', '5846', '5', 1, 0, 2, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, NULL, NULL, 1, 1, 1, 0, 1, 1, 1, 1, 'N/A', NULL, '2020-10-09 22:39:39'),
+(1, 'Juan', 'Miguel', 'Perez', 'Garcia', 'Masculino', 14, '546546515', 'Maya', 'Coban', '2009-02-15', 'Español', 'Español', 'Carla Garcia', 'Carlos Perez', '5465465456', '56465465', '4654654', '46546489', 'Carlos miquel', 'j65464', '65465465', 'Coban', '5846', '5', 1, 0, 2, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, NULL, NULL, 1, 1, 1, 0, 1, 1, 1, 1, 'N/A', NULL, '2020-10-17 16:59:59'),
 (3, 'Gabriel', 'Gerardo', 'Castro', 'Vega', 'Masculino', 24, '123456789', 'Ladino', 'Fray Bartolomé', '1995-06-12', 'Español', 'Español', 'Gabriela Castro', 'Gabriel Castro', '123456789', '123456789', '123456789', '123456789', 'Luis Gustavo Caal Pop', '12345666', '123456789', 'Cobán', 'UMG', '6o. primaria', 0, 0, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Cliente prueba', '2020-09-17 04:47:11', '2020-09-23 02:23:15');
 
 -- --------------------------------------------------------
@@ -160,11 +155,6 @@ CREATE TABLE `estudiantes1s` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Truncar tablas antes de insertar `estudiantes1s`
---
-
-TRUNCATE TABLE `estudiantes1s`;
---
 -- Volcado de datos para la tabla `estudiantes1s`
 --
 
@@ -181,15 +171,83 @@ INSERT INTO `estudiantes1s` (`id`, `PrimerNombre`, `SegundoNombre`, `ApellidoPat
 DROP TABLE IF EXISTS `estudio_socioeconimicos`;
 CREATE TABLE `estudio_socioeconimicos` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `Apellidos` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Nombres` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Sexo` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Edad` int(11) NOT NULL,
+  `CUI` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ComunidadEtnica` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `EstadoS` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `IdiomaMaterno` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `SugundoIdioma` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `NoTelefono` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Proficion` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Empleo` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `IngresoM` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Egresos` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `DireccionD` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `problemasSalud` tinyint(1) DEFAULT NULL,
+  `Especifique` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Especifice01` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `NombreApellido` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `NombreApellido02` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `DiscapacidadSi` tinyint(1) DEFAULT NULL,
+  `Mayor` tinyint(1) DEFAULT NULL,
+  `Espesifique02` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `CertificadoSi` tinyint(1) DEFAULT NULL,
+  `Motivo` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `OtroDiscapacidadSi` tinyint(1) DEFAULT NULL,
+  `PropiaSi` tinyint(1) DEFAULT NULL,
+  `CedidaSi` tinyint(1) DEFAULT NULL,
+  `PrestadaSi` tinyint(1) DEFAULT NULL,
+  `PropiaS` tinyint(1) DEFAULT NULL,
+  `AlquiladaSi` tinyint(1) DEFAULT NULL,
+  `InvasionSi` tinyint(1) DEFAULT NULL,
+  `Otros` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Habitaciones` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Comedor` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Cocina` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Lavanderia` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `PatioSi` tinyint(1) DEFAULT NULL,
+  `SalaSi` tinyint(1) DEFAULT NULL,
+  `BanoSi` tinyint(1) DEFAULT NULL,
+  `GarajeSi` tinyint(1) DEFAULT NULL,
+  `Block` tinyint(1) DEFAULT NULL,
+  `Adobe` tinyint(1) DEFAULT NULL,
+  `Madera` tinyint(1) DEFAULT NULL,
+  `ViviendaT` tinyint(1) DEFAULT NULL,
+  `AguaP` tinyint(1) DEFAULT NULL,
+  `Rio` tinyint(1) DEFAULT NULL,
+  `Pozo` tinyint(1) DEFAULT NULL,
+  `Otro` tinyint(1) DEFAULT NULL,
+  `Electricidad` tinyint(1) DEFAULT NULL,
+  `Velas` tinyint(1) DEFAULT NULL,
+  `Otros03` tinyint(1) DEFAULT NULL,
+  `Otros04` tinyint(1) DEFAULT NULL,
+  `NoT` tinyint(1) DEFAULT NULL,
+  `Drenaje` tinyint(1) DEFAULT NULL,
+  `PozoS` tinyint(1) DEFAULT NULL,
+  `Rio02` tinyint(1) DEFAULT NULL,
+  `Otro02` tinyint(1) DEFAULT NULL,
+  `Electricista02` tinyint(1) DEFAULT NULL,
+  `Lena` tinyint(1) DEFAULT NULL,
+  `Gas` tinyint(1) DEFAULT NULL,
+  `Otro03` tinyint(1) DEFAULT NULL,
+  `Telefono02` tinyint(1) DEFAULT NULL,
+  `Cable` tinyint(1) DEFAULT NULL,
+  `Internet` tinyint(1) DEFAULT NULL,
+  `Celular` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Truncar tablas antes de insertar `estudio_socioeconimicos`
+-- Volcado de datos para la tabla `estudio_socioeconimicos`
 --
 
-TRUNCATE TABLE `estudio_socioeconimicos`;
+INSERT INTO `estudio_socioeconimicos` (`id`, `Apellidos`, `Nombres`, `Sexo`, `Edad`, `CUI`, `ComunidadEtnica`, `EstadoS`, `IdiomaMaterno`, `SugundoIdioma`, `NoTelefono`, `Proficion`, `Empleo`, `IngresoM`, `Egresos`, `DireccionD`, `problemasSalud`, `Especifique`, `Especifice01`, `NombreApellido`, `NombreApellido02`, `DiscapacidadSi`, `Mayor`, `Espesifique02`, `CertificadoSi`, `Motivo`, `OtroDiscapacidadSi`, `PropiaSi`, `CedidaSi`, `PrestadaSi`, `PropiaS`, `AlquiladaSi`, `InvasionSi`, `Otros`, `Habitaciones`, `Comedor`, `Cocina`, `Lavanderia`, `PatioSi`, `SalaSi`, `BanoSi`, `GarajeSi`, `Block`, `Adobe`, `Madera`, `ViviendaT`, `AguaP`, `Rio`, `Pozo`, `Otro`, `Electricidad`, `Velas`, `Otros03`, `Otros04`, `NoT`, `Drenaje`, `PozoS`, `Rio02`, `Otro02`, `Electricista02`, `Lena`, `Gas`, `Otro03`, `Telefono02`, `Cable`, `Internet`, `Celular`, `created_at`, `updated_at`) VALUES
+(1, 'Pérez López', 'Juan', 'Masculino', 45, '1646798', 'Maya', 'Casado', 'Español', NULL, '431578', 'Campo', 'Casecha', '2800', '2500', 'Coban 5-58', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1, NULL, NULL, '2', '1', '1', '1', 1, 1, 1, 1, 1, 1, 1, 1, 1, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, 1, 1, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -203,11 +261,6 @@ CREATE TABLE `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Truncar tablas antes de insertar `migrations`
---
-
-TRUNCATE TABLE `migrations`;
 --
 -- Volcado de datos para la tabla `migrations`
 --
@@ -230,16 +283,12 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Truncar tablas antes de insertar `password_resets`
---
-
-TRUNCATE TABLE `password_resets`;
---
 -- Volcado de datos para la tabla `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('gustavo.pop93@gmail.com', '$2y$10$Ca1.7ds1yUj0qCvLfMgw6eab3i3LVDFzL2n4RQZhW31.5KJgx47e6', '2020-09-24 01:03:28');
+('gustavo.pop93@gmail.com', '$2y$10$Ca1.7ds1yUj0qCvLfMgw6eab3i3LVDFzL2n4RQZhW31.5KJgx47e6', '2020-09-24 01:03:28'),
+('msebc@gmail.com', '$2y$10$fOm.wveiIRAYPdIBV87jweV3LP96P9ORCQYxE5PKTzY.Voqme0cyu', '2020-10-10 21:31:37');
 
 -- --------------------------------------------------------
 
@@ -260,23 +309,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Truncar tablas antes de insertar `users`
---
-
-TRUNCATE TABLE `users`;
---
 -- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Mario Leal', 'malvger@hotmail.com', NULL, '$2y$10$6bhz2d1Y59dSQ8f/J70IL.MT4ztHV6.36H049hyoT9T/vYaS4kEla', NULL, '2020-09-15 18:40:07', '2020-09-15 18:40:07'),
+(1, 'Mario Leal', 'malvger@hotmail.com', NULL, '$2y$10$6bhz2d1Y59dSQ8f/J70IL.MT4ztHV6.36H049hyoT9T/vYaS4kEla', 'tOqurjTZsLuGi8FYbusuICgOMY7ULY46eFio4ERK1e4XpVkxQlR9aUEuBvJe', '2020-09-15 18:40:07', '2020-09-15 18:40:07'),
 (2, 'tony', 'tony_contreras78@yahoo.com', NULL, '$2y$10$IXlImlBA1wK6Du.g1ipnvud43oGqlz7Q8RqiOG.2fW2u7kMzR7PFS', NULL, '2020-09-17 02:41:52', '2020-09-17 02:41:52'),
 (3, 'Gustavo Caal', 'gustavo.pop93@gmail.com', NULL, '$2y$10$whqt73x9i4uxjLJ4mAUpYOwN5zDM836fAjMWktIuTecryL3YE9LQS', NULL, '2020-09-17 02:54:21', '2020-09-17 02:54:21'),
-(4, 'Marvin', 'msebc@gmail.com', NULL, '$2y$10$RPAQCPAVWKXH2.jLn6zp0O4hAGFJPvSaz07ME8BNUeshIuNquUl2i', NULL, '2020-09-19 14:10:31', '2020-09-19 14:10:31'),
 (5, 'Marvin', 'msebc@gmail.com', NULL, '$2y$10$/Iu4JGNXfoyn3cw5sdNYIuVq9OClj2XqncSjYRRx3XY6MHJx6JO4e', NULL, '2020-09-19 14:10:31', '2020-09-19 14:10:31'),
 (6, 'Hugo Aragón', 'haragonc1@miumg.edu.gt', NULL, '$2y$10$rsYJUriXhWrVtW4jSnFqaubmy/svAiYmyhu/WXabPJjcFABxu6UUW', 'wE5Y2qAPDQeDiaZtQsuNg2iexxJJ9FbODyQ0eJDcJveG7fNgFIgkC04tQiKt', '2020-09-19 14:19:10', '2020-09-19 14:19:10'),
-(7, 'Gus', 'tes@dev.com', NULL, '$2y$10$wV88fTgYII.X59AD9XX.geX2Z.AzTz8.G4RSMeUfEd8ShjLHE9ble', NULL, '2020-09-19 16:16:25', '2020-09-19 16:16:25'),
-(8, 'Gus', 'test@dev.com', NULL, '$2y$10$MH3bjdON3ej.ry6PWPZ0zupoEZVLEykR05zmqu76wjmKIfeUeIiH2', NULL, '2020-09-26 21:00:07', '2020-09-26 21:00:07');
+(8, 'Gus', 'test@dev.com', NULL, '$2y$10$MH3bjdON3ej.ry6PWPZ0zupoEZVLEykR05zmqu76wjmKIfeUeIiH2', NULL, '2020-09-26 21:00:07', '2020-09-26 21:00:07'),
+(9, 'Marvin', 'marvinleonel25@gmail.com', NULL, '$2y$10$TI4Z6x06lGWSPqO8K0DPkuv8dVqOX95pI2sFHJqj4lD0vjDCBBfw.', NULL, '2020-10-10 21:32:25', '2020-10-10 21:32:25');
 
 --
 -- Índices para tablas volcadas
@@ -287,6 +330,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 ALTER TABLE `estudiantes`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `estudio_socioeconimicos`
+--
+ALTER TABLE `estudio_socioeconimicos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `estudio_socioeconimicos_cui_unique` (`CUI`);
 
 --
 -- Indices de la tabla `migrations`
@@ -317,10 +367,16 @@ ALTER TABLE `estudiantes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `estudio_socioeconimicos`
+--
+ALTER TABLE `estudio_socioeconimicos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

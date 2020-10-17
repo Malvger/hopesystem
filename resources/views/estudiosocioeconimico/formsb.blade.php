@@ -3,37 +3,6 @@
 <table class="table table-bordered" width="100%" cellspacing="0">
     <tbody>
         <tr class="bg-secondary text-white">
-            <td colspan="4" >{{ __('¿cuál es el material predomínate en la construcción de la vivienda?') }}</td>
-        </tr>
-        <tr>
-            <td>Block</td>
-            <td><input id="Block" type="checkbox" class="form-control" name="Block"
-            {{isset($estudioS->Block)?$estudioS->Block=='1'?'checked':'':'' }}
-            value="1"></td>
-            <td>Adobe</td>
-            <td><input id="Adobe" type="checkbox" class="form-control" name="Adobe"
-            {{isset($estudioS->Adobe)?$estudioS->Adobe=='1'?'checked':'':'' }}
-            value="1"></td>
-        </tr>
-        <tr>
-            <td>Madera</td>
-            <td><input id="Madera" type="checkbox" class="form-control" name="Madera"
-            {{isset($estudioS->Madera)?$estudioS->Madera=='1'?'checked':'':'' }}
-            value="1"></td>
-            <td>Vivienda tipo champa</td>
-            <td><input id="ViviendaT" type="checkbox" class="form-control" name="ViviendaT"
-            {{isset($estudioS->ViviendaT)?$estudioS->ViviendaT=='1'?'checked':'':'' }}
-            value="1"></td>
-        </tr>
-
-    </tbody>
-</table>
-
-<h5>IV. SERVICIOS BÁSICOS </h5>
-
-<table class="table table-bordered" width="100%" cellspacing="0">
-    <tbody>
-        <tr class="bg-secondary text-white">
             <td colspan="8" >{{ __('El abastecimiento de aguas procede de:') }}</td>
         </tr>
         <tr>

@@ -90,7 +90,7 @@ class EstudioSocioeconimicoController extends Controller
 
         $datosEstudiante=request()->except('_token','_method');
         $datosEstudiante['problemasSalud']=isset($datosEstudiante['problemasSalud'])?'1':'0';
-        $datosEstudiante['ProblemaSaludSi']=isset($datosEstudiante['ProblemaSaludSi'])?'1':'0';
+        //$datosEstudiante['ProblemaSaludSi']=isset($datosEstudiante['ProblemaSaludSi'])?'1':'0';
         $datosEstudiante['DiscapacidadSi']=isset($datosEstudiante['DiscapacidadSi'])?'1':'0';
         $datosEstudiante['CertificadoSi']=isset($datosEstudiante['CertificadoSi'])?'1':'0';
         $datosEstudiante['OtroDiscapacidadSi']=isset($datosEstudiante['OtroDiscapacidadSi'])?'1':'0';

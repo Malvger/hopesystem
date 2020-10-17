@@ -15,13 +15,36 @@ class CreateEstudioSocioeconimicosTable extends Migration
     {
         Schema::create('estudio_socioeconimicos', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+
+            $table->string('Apellidos');
+            $table->string('Nombres');
+            $table->string('Sexo');
+            $table->integer('Edad');
+            $table->string('CUI')->unique();
+            $table->string('ComunidadEtnica')->nullable();
+            $table->string('EstadoS')->nullable();
+            $table->string('IdiomaMaterno')->nullable();
+            $table->string('SugundoIdioma')->nullable();
+            $table->string('NoTelefono')->nullable();
+            $table->string('Proficion')->nullable();
+            $table->string('Empleo')->nullable();
+            $table->string('IngresoM')->nullable();
+            $table->string('Egresos')->nullable();
+            $table->string('DireccionD')->nullable();
+
+//salud fisica psocologica 
             $table->boolean('problemasSalud')->nullable();
             $table->string('Especifique')->nullable();
-            $table->boolean('ProblemaSaludSi')->nullable();
+            
             $table->string('Especifice01')->nullable();
             $table->string('NombreApellido')->nullable();
+            $table->string('NombreApellido02')->nullable();
             $table->boolean('DiscapacidadSi')->nullable();
+            $table->boolean('Mayor')->nullable();
             $table->string('Espesifique02')->nullable();
+
+             //
             $table->boolean('CertificadoSi')->nullable();
             $table->string('Motivo')->nullable();
             $table->boolean('OtroDiscapacidadSi')->nullable();
@@ -52,6 +75,7 @@ class CreateEstudioSocioeconimicosTable extends Migration
             $table->boolean('Electricidad')->nullable();
             $table->boolean('Velas')->nullable();
             $table->boolean('Otros03')->nullable();
+            $table->boolean('Otros04')->nullable();
             $table->boolean('NoT')->nullable();
             $table->boolean('Drenaje')->nullable();
             $table->boolean('PozoS')->nullable();
