@@ -41,6 +41,7 @@
               <tr>
                 <th>#</th>
                 <th>Nombre</th>
+                <th>Área de estudios</th>
                 <th>CUI</th>
                 {{-- <th>Primer Nombre</th>
                 <th>Segundo Nombre</th>
@@ -56,6 +57,7 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$estudiante->ApellidoPaterno}} {{$estudiante->ApellidoMaterno}}, {{$estudiante->PrimerNombre}} {{$estudiante->SegundoNombre}}</td>
+                    <td>{{isset($estudiante->Area)?$estudiante->Area=='1'?'Medio, Ciclo Diversificado':'Preprimaria y Primero':'Preprimaria y Primero' }}</td>
                     <td>{{$estudiante->CUI}}</td>
                     {{-- <td>{{$estudiante->PrimerNombre}}</td>
                     <td>{{$estudiante->SegundoNombre}}</td>
