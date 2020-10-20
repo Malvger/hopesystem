@@ -8,9 +8,9 @@
             <td colspan="2">{{ __('Nombres') }}</td>
         </tr>
         <tr>
-            <td colspan="2"><input id="Apellidos" type="text" class="form-control" name="Apellidos" 
+            <td colspan="2"><input id="Apellidos" type="text" class="form-control" name="Apellidos" required
                 value="{{isset($estudioS->Apellidos)?$estudioS->Apellidos:'' }}"></td>
-            <td colspan="2"><input id="Nombres" type="text" class="form-control" name="Nombres" 
+            <td colspan="2"><input id="Nombres" type="text" class="form-control" name="Nombres" required
                 value="{{isset($estudioS->Nombres)?$estudioS->Nombres:'' }}"></td>
         </tr>
         <tr class="bg-secondary text-white">
@@ -20,11 +20,11 @@
             <td>{{ __('Comunidad Étnica') }}</td>
         </tr>
         <tr>
-            <td><input id="Sexo" type="text" class="form-control" name="Sexo" 
+            <td><input id="Sexo" type="text" class="form-control" name="Sexo" required
                 value="{{isset($estudioS->Sexo)?$estudioS->Sexo:'' }}"></td>
-            <td><input id="Edad" type="text" class="form-control" name="Edad" 
+            <td><input id="Edad" type="text" class="form-control" name="Edad" required
                 value="{{isset($estudioS->Edad)?$estudioS->Edad:'' }}"></td>
-            <td><input id="CUI" type="text" class="form-control" name="CUI" 
+            <td><input id="CUI" type="text" class="form-control" name="CUI" required
                 value="{{isset($estudioS->CUI)?$estudioS->CUI:'' }}"></td>
             <td><input id="ComunidadEtnica" type="text" class="form-control" name="ComunidadEtnica" 
                 value="{{isset($estudioS->ComunidadEtnica)?$estudioS->ComunidadEtnica:'' }}"></td>

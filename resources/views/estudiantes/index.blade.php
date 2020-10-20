@@ -2,17 +2,37 @@
 
 @section('content')
 
+
+<style>
+.fa.disabled,
+.fa[disabled],
+.disabled > .fa,
+[disabled] > .fa {
+  opacity: 0.5;
+  /*optional*/ cursor: not-allowed;
+  /*optional*/ pointer-events: none;
+}
+
+
+</style>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- Page Heading -->
-    {{-- <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> --}}
-
+       
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Estudiantes</h6>
+        <h6 class="m-0 font-weight-bold text-primary">ESTUDIANTES
+          <div class="input-group md-form form-sm form-1 pl-0">
+            <div class="input-group-prepend">
+                <span class="input-group-text purple lighten-3" id="basic-text1"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+            </div>
+             <input id="buscar" class="form-control my-0 py-1" type="text" placeholder="Buscar" aria-label="Buscar">
+             <span class="table-add ml-3 "><a href="{{ url('/estudiantes/create') }}" class="text-success"><i
+            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+          </div>
+         </h6>
+
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -43,8 +63,10 @@
                     <td>{{$estudiante->ApellidoMaterno}}</td> --}}
                     <td>{{$estudiante->Sexo}}</td>
                     <td>{{$estudiante->Edad}}</td>
-                    <td><a href="{{url('/estudiantes/'.$estudiante->id.'/edit')}}"> Editar </a>
-        
+                    <td><a href="{{url('/estudiantes/'.$estudiante->id.'/edit')}}" > <i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
+                        <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
+                        <a  href="#"> <i class="fa fa-trash  ml-3 disabled"   placeholder="Eliminar"></i> </a>
+                       
                     {{-- <form method="POST" accept="{{url('/estudiantes/'.$estudiante->id)}}" >
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
@@ -63,5 +85,16 @@
     </div>
 
   </div>
-  
+  <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+<script>
+$(document).ready(function(){
+  $("#buscar").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#dataTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
 @endsection
