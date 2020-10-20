@@ -34,3 +34,9 @@ Route::patch('estudiantes1/{id}/edit', 'Estudiantes1Controller@update')->name('e
 
 Route::resource('estudiosocioeconimico', 'EstudioSocioeconimicoController');
 Route::patch('estudiosocioeconimico/{id}/edit', 'EstudioSocioeconimicoController@update')->name('estudiosocioeconimico.update');
+
+Route::resource('cursos', 'CursoController');
+Route::patch('cursos/{id}/edit', 'CursoController@update')->name('cursos.update'); 
+
+Route::resource('grados', 'GradoController');
+Route::patch('grados/{id}/edit', 'GradoController@update')->name('grados.update'); 
