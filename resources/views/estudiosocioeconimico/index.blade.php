@@ -11,7 +11,16 @@
   /*optional*/ pointer-events: none;
 }
 
-
+.delete 
+{ 
+background: #ffffff; 
+background-position: 0px -401px; 
+border:0; 
+height: 21px;
+margin-top: -1px;
+padding-bottom: 2px;
+}
+.delete:hover {background: white;background-position: 0px -501px;color: #000000; }
 </style>
 
 <!-- Begin Page Content -->
@@ -53,11 +62,12 @@
                     <td><a href="{{url('/estudiosocioeconimico/'.$estudio->id.'/edit')}}"><i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
                         <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
                         <a  href="#"> <i class="fa fa-trash  ml-3 disabled"   placeholder="Eliminar"></i> </a>
-                    {{-- <form method="POST" accept="{{url('/estudiosocioeconimico/'.$estudio->id)}}" >
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <button type="submit" onclick="return confirm('Borrar?')">Borrar</button>
-                    </form> --}}
+                        <form method="POST" action="{{ url('/estudiosocioeconimico/'.$estudio->id) }}"  class="d-inline">
+                          @csrf
+                          @method('DELETE')
+                          <button class='delete' type="submit" > <i class="fa fa-trash-alt  ml-3"   placeholder="Eliminar"></i> </button>
+                          
+                        </form>
                     </td>
                 </tr>
 

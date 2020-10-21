@@ -147,8 +147,11 @@ class EstudioSocioeconimicoController extends Controller
      * @param  \App\EstudioSocioeconimico  $estudioSocioeconimico
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EstudioSocioeconimico $estudioSocioeconimico)
+    public function destroy( $id)
     {
         //
+        $post = EstudioSocioeconimico::find($id);
+        $post->delete();
+        return redirect('/estudiosocioeconimico');
     }
 }

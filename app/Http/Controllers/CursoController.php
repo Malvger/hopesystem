@@ -117,6 +117,9 @@ class CursoController extends Controller
     public function destroy( $id)
     {
         //
-        curso::destroy($id);
+        // curso::destroy($id);
+        $post = curso::find($id);
+        $post->delete();
+        return redirect('/cursos');
     }
 }

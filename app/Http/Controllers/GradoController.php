@@ -126,6 +126,13 @@ class GradoController extends Controller
     public function destroy( $id)
     {
         //
-        Grado::destroy($id);
+    //     Grado::findOrFail($id)->delete();
+    //    return redirect('grado');
+        // Grado::destroy($id);
+        $post = Grado::find($id);
+        $post->delete();
+        return redirect('/grados');
+
+
     }
 }

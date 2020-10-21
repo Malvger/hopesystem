@@ -40,3 +40,4 @@ Route::patch('cursos/{id}/edit', 'CursoController@update')->name('cursos.update'
 
 Route::resource('grados', 'GradoController');
 Route::patch('grados/{id}/edit', 'GradoController@update')->name('grados.update'); 
+Route::delete('grados/{id}', 'GradoController@destroy')->name('grados.destroy');

@@ -125,6 +125,9 @@ class EstudianteController extends Controller
     public function destroy($id)
     {
         //
-        estudiante::destroy($id);
+        // estudiante::destroy($id);
+        $post = estudiante::find($id);
+        $post->delete();
+        return redirect('/estudiantes');
     }
 }

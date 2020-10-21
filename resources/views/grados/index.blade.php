@@ -13,6 +13,17 @@
   /*optional*/ pointer-events: none;
 }
 
+.delete 
+{ 
+background: #ffffff; 
+background-position: 0px -401px; 
+border:0; 
+height: 21px;
+margin-top: -1px;
+padding-bottom: 2px;
+}
+.delete:hover {background: white;background-position: 0px -501px;color: #000000; }
+
 
 </style>
 <!-- Begin Page Content -->
@@ -55,14 +66,15 @@
                     @foreach ($ciclo as $ciclos)  
                     <!-- {{$loop->iteration}} -->
                       {{$ciclos->id==$grados->ciclo?$ciclos->ciclo:''}}
-                    @endforeach
-                    <!-- {{isset($grados->Area)?$grados->Area=='1'?'Medio, Ciclo Diversificado':'Preprimaria y Primero':'Preprimaria y Primero' }}</td> -->
-                    
-                    
+                    @endforeach        
                     <td><a href="{{url('/grados/'.$grados->id.'/edit')}}" > <i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
                         <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
-                        <a  href="#"> <i class="fa fa-trash  ml-3 disabled"   placeholder="Eliminar"></i> </a>
- 
+                        <form method="POST" action="{{ url('/grados/'.$grados->id) }}"  class="d-inline">
+                          @csrf
+                          @method('DELETE')
+                          <button class='delete' type="submit" > <i class="fa fa-trash-alt  ml-3"   placeholder="Eliminar"></i> </button>
+                          
+                        </form>
                     </td>
                 </tr>
 
