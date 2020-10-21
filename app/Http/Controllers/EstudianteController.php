@@ -20,7 +20,7 @@ class EstudianteController extends Controller
     public function index()
     {
         //
-        $datos['estudiantes']=estudiante::paginate(5);
+        $datos['estudiantes']=estudiante::all();
         return view('estudiantes.index',$datos);
     }
 
@@ -48,7 +48,7 @@ class EstudianteController extends Controller
         $datosEstudiante=request()->except('_token');
         estudiante::insert($datosEstudiante);
         //return response()->json($datosEstudiante);
-        $datos['estudiantes']=estudiante::paginate(5);
+        $datos['estudiantes']=estudiante::all();
         return view('estudiantes.index',$datos);
     }
 

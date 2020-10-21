@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\curso;
-use App\estudiante;
+use App\Grado;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,7 +24,7 @@ class CursoController extends Controller
     public function index()
     {
         //
-        $datos['cursos']=curso::paginate(5);
+        $datos['cursos']=curso::all();
         return view('cursos.index',$datos);
     }
 
@@ -36,7 +36,10 @@ class CursoController extends Controller
     public function create()
     {
         //
-        return view('cursos.create');
+        $grado=Grado::all();
+
+        return view('cursos.create', compact('grado'));
+        // return view('cursos.create');
     }
 
     /**
@@ -51,8 +54,10 @@ class CursoController extends Controller
         $datosCursos=request()->except('_token');
         curso::insert($datosCursos);
         //return response()->json($datosEstudiante);
-        $datos['cursos']=curso::paginate(5);
+        $datos['cursos']=curso::all();
         return view('cursos.index',$datos);
+
+
     }
 
     /**
@@ -77,7 +82,9 @@ class CursoController extends Controller
         //
         $curso=curso::findOrFail($id);
 
-        return view('cursos.edit', compact('curso'));
+        $grado=Grado::all();
+
+        return view('cursos.edit', compact('curso','grado'));
     }
 
     /**
@@ -96,7 +103,9 @@ class CursoController extends Controller
 
         $curso=curso::findOrFail($id);
 
-        return view('cursos.edit', compact('curso'));
+        $grado=Grado::all();
+
+        return view('cursos.edit', compact('curso','grado'));
     }
 
     /**

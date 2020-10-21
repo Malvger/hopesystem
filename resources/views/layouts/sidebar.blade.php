@@ -32,19 +32,20 @@
   </a>
 </li>
 <li class="nav-item">
-  <a class="nav-link collapsed"  href="{{ url('/cursos') }}" >
-    <!-- <i class="fas fa-fw fa-wrench"></i> -->
-    <i class="fas fa-chalkboard-teacher"></i>
-    <span>Curso</span>
-  </a>
-</li>
-<li class="nav-item">
   <a class="nav-link collapsed"  href="{{ url('/grados') }}" >
     <!-- <i class="fas fa-fw fa-wrench"></i> -->
     <i class="fas fa-chalkboard-teacher"></i>
     <span>Grado</span>
   </a>
 </li>
+<li class="nav-item">
+  <a class="nav-link collapsed"  href="{{ url('/cursos') }}" >
+    <!-- <i class="fas fa-fw fa-wrench"></i> -->
+    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+    <span>Curso</span>
+  </a>
+</li>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

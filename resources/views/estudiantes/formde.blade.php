@@ -4,7 +4,7 @@
 <table class="table table-bordered" width="100%" cellspacing="0">
     <tbody>
         <tr class="bg-secondary text-white">
-            <td colspan="4">{{ __('Área de estudios ') }}</td>
+            <td colspan="4">{{ __('Nivel ') }}</td>
         </tr>
         <tr>
             <td colspan="4">
@@ -14,7 +14,7 @@
                     <option value="1" {{isset($estudiante->Area)?$estudiante->Area=='1'?'selected':'':'' }}> Medio, Ciclo Diversificado</option>  
                 </select>
             
-            </td>
+            </td> 
         </tr>
 
         <tr class="bg-secondary text-white">

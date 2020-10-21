@@ -385,6 +385,7 @@ class ComposerStaticInitComposerPhar1505141966
     );
 
     public static $classMap = array (
+        'App\\Ciclo' => __DIR__ . '/../..' . '/app/Ciclo.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Estudiantes1' => __DIR__ . '/../..' . '/app/Estudiantes1.php',
         'App\\EstudioSocioeconimico' => __DIR__ . '/../..' . '/app/EstudioSocioeconimico.php',
@@ -400,6 +401,7 @@ class ComposerStaticInitComposerPhar1505141966
         'App\\Http\\Controllers\\EstudianteController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstudianteController.php',
         'App\\Http\\Controllers\\Estudiantes1Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Estudiantes1Controller.php',
         'App\\Http\\Controllers\\EstudioSocioeconimicoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstudioSocioeconimicoController.php',
+        'App\\Http\\Controllers\\GradoController' => __DIR__ . '/../..' . '/app/Http/Controllers/GradoController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\SaludPsicologicaController' => __DIR__ . '/../..' . '/app/Http/Controllers/SaludPsicologicaController.php',
         'App\\Http\\Controllers\\SituacionViviendaController' => __DIR__ . '/../..' . '/app/Http/Controllers/SituacionViviendaController.php',
