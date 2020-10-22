@@ -17,11 +17,16 @@ class GradoController extends Controller
     public function index()
     {
         //
-        $datos['grado']=Grado::all();
+        // $datos['grado']=Grado::all();
 
-        $datos['ciclo']=Ciclo::all();
+        // $datos['ciclo']=Ciclo::all();
+            //{"id":3,"Area":null,"ciclo":"Medio","grado":"Primero"}
+        $datos['grado'] = Grado::join("ciclos", "ciclos.id", "=", "grados.ciclo")
+                            ->select("grados.id","ciclos.ciclo","grados.grado")
+                            ->orderBy('ciclos.ciclo', 'ASC')
+                            ->orderBy('grados.grado', 'ASC')
+                            ->get();
 
-        //return view('grados.index', compact('datos','ciclo'));
         return view('grados.index',$datos);
     }
 
@@ -47,20 +52,17 @@ class GradoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-                //
-        //$datosEstudiante=Request()->all();
+ 
         $datosGrado=request()->except('_token');
         Grado::insert($datosGrado);
-        //return response()->json($datosEstudiante);
-        // $datos['grado']=Grado::all();;
-        // return view('grados.index',$datos); 
 
-        $datos['grado']=Grado::all();
 
-        $datos['ciclo']=Ciclo::all();
-
-        //return view('grados.index', compact('datos','ciclo'));
+        $datos['grado'] = Grado::join("ciclos", "ciclos.id", "=", "grados.ciclo")
+        ->select("grados.id","ciclos.ciclo","grados.grado")
+        ->orderBy('ciclos.ciclo', 'ASC')
+        ->orderBy('grados.grado', 'ASC')
+        ->get();
+        
         return view('grados.index',$datos);
     }
 

@@ -82,5 +82,6 @@ class CicloController extends Controller
     public function destroy(Ciclo $ciclo)
     {
         //
+        
     }
 }

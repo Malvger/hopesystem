@@ -31,6 +31,9 @@
     <span>Estudio Socioeconómico</span>
   </a>
 </li>
+<div class="sidebar-heading">
+      Administracion
+    </div>
 <li class="nav-item">
   <a class="nav-link collapsed"  href="{{ url('/grados') }}" >
     <!-- <i class="fas fa-fw fa-wrench"></i> -->

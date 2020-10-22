@@ -75,6 +75,9 @@ class CreateEstudiantesTable extends Migration
 
             $table->mediumText('Observaciones')->nullable();
 
+            //
+            $table->integer('grado')->nullable();
+
             $table->timestamps();
         });
     }

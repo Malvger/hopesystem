@@ -62,11 +62,8 @@ padding-bottom: 2px;
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$grados->grado}}</td>
-                    <td>
-                    @foreach ($ciclo as $ciclos)  
-                    <!-- {{$loop->iteration}} -->
-                      {{$ciclos->id==$grados->ciclo?$ciclos->ciclo:''}}
-                    @endforeach        
+                    <!-- <td>{{$grados}}</td> -->
+                    <td>{{$grados->ciclo}}</td>
                     <td><a href="{{url('/grados/'.$grados->id.'/edit')}}" > <i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
                         <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
                         <form method="POST" action="{{ url('/grados/'.$grados->id) }}"  class="d-inline">

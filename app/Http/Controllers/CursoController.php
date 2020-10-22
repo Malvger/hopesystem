@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\curso;
 use App\Grado;
+use App\Ciclo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,7 +25,19 @@ class CursoController extends Controller
     public function index()
     {
         //
-        $datos['cursos']=curso::all();
+        // $datos['cursos']=curso::all();
+        // $datos['grado']=Grado::all();
+        // $datos['ciclo']=Ciclo::all();
+
+        $datos['cursos'] = curso::join("grados", "cursos.grado", "=", "grados.id")
+                            ->join("ciclos", "grados.ciclo", "=", "ciclos.id")
+                            ->select("cursos.id","cursos.nombre","cursos.descrip","grados.grado","ciclos.ciclo")
+                            ->orderBy('grados.grado', 'ASC')
+                            ->orderBy('ciclos.ciclo', 'ASC')
+                            ->orderBy('cursos.nombre', 'ASC')
+                            ->get();
+
+
         return view('cursos.index',$datos);
     }
 
@@ -37,8 +50,9 @@ class CursoController extends Controller
     {
         //
         $grado=Grado::all();
+        $ciclo=Ciclo::all();
 
-        return view('cursos.create', compact('grado'));
+        return view('cursos.create', compact('grado','ciclo'));
         // return view('cursos.create');
     }
 
@@ -54,7 +68,17 @@ class CursoController extends Controller
         $datosCursos=request()->except('_token');
         curso::insert($datosCursos);
         //return response()->json($datosEstudiante);
-        $datos['cursos']=curso::all();
+        // $datos['cursos']=curso::all();
+
+        $datos['cursos'] = curso::join("grados", "cursos.grado", "=", "grados.id")
+        ->join("ciclos", "grados.ciclo", "=", "ciclos.id")
+        ->select("cursos.id","cursos.nombre","cursos.descrip","grados.grado","ciclos.ciclo")
+        ->orderBy('grados.grado', 'ASC')
+        ->orderBy('ciclos.ciclo', 'ASC')
+        ->orderBy('cursos.nombre', 'ASC')
+        ->get();
+
+
         return view('cursos.index',$datos);
 
 
@@ -83,8 +107,9 @@ class CursoController extends Controller
         $curso=curso::findOrFail($id);
 
         $grado=Grado::all();
+        $ciclo=Ciclo::all();
 
-        return view('cursos.edit', compact('curso','grado'));
+        return view('cursos.edit', compact('curso','grado','ciclo'));
     }
 
     /**
@@ -102,10 +127,10 @@ class CursoController extends Controller
         curso::where('id','=', $id)->update($datosCursos);
 
         $curso=curso::findOrFail($id);
-
+        $ciclo=Ciclo::all();
         $grado=Grado::all();
 
-        return view('cursos.edit', compact('curso','grado'));
+        return view('cursos.edit', compact('curso','grado','ciclo'));
     }
 
     /**

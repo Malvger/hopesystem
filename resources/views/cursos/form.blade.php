@@ -3,7 +3,7 @@
 <table class="table table-bordered" width="100%" cellspacing="0">
     <tbody>
     <tr class="bg-secondary text-white">
-            <td >{{ __('Nivel - Grado ') }}
+            <td >{{ __('Ciclo - Grado ') }}
             
 
 
@@ -11,11 +11,19 @@
         </tr>
         <tr>
             <td >  
-                <select id="curso" class="form-control" name="curso">  
+                <select id="grado" class="form-control" name="grado">  
                     @foreach ($grado as $grados)           
-                         <option value="{{$grados->id}}" {{isset($grados->Area)?$grados->id==$curso->curso?'selected':'':'' }} >
-                         {{$grados->grado}}  -
-                         {{$grados->Area=='0'?'Preprimaria y Primero':'Medio, Ciclo Diversificado'}}    
+                         <option value="{{$grados->id}}" 
+                                {{isset($grados->ciclo)?
+                                    isset($curso->grado)?
+                                        $grados->id==$curso->grado?'selected':''
+                                            :''
+                                        :'' }} >
+                        
+                            @foreach ($ciclo as $ci) 
+                                {{$grados->ciclo==$ci->id?$ci->ciclo:''}}
+                            @endforeach
+                            - {{$grados->grado}}
                          </option>
                      @endforeach
                  </select>
