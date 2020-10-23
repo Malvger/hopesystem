@@ -63,7 +63,8 @@ padding-bottom: 2px;
                     <td>{{$curso->ciclo}} / {{$curso->grado}}</td>
                     <td>{{$curso->descrip}}</td>
                     <td><a href="{{url('/cursos/'.$curso->id.'/edit')}}" > <i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
-                        <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
+                    <a  href="{{url('/cursos/'.$curso->id.'/notas')}}"> <i class="fa fa-book ml-3"  placeholder="Notas"></i> </a>
+                        <a  href="#"> <i class="fa fa-print ml-3"  placeholder="Imprimir"></i> </a> 
                         <form method="POST" action="{{ url('/cursos/'.$curso->id) }}"  class="d-inline">
                           @csrf
                           @method('DELETE')

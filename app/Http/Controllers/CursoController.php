@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\curso;
 use App\Grado;
 use App\Ciclo;
+use App\estudiante;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -110,6 +111,39 @@ class CursoController extends Controller
         $ciclo=Ciclo::all();
 
         return view('cursos.edit', compact('curso','grado','ciclo'));
+    }
+    public function notas( $id)
+    {
+        //
+        // $curso=curso::findOrFail($id);
+
+        $datos = curso::join("grados", "cursos.grado", "=", "grados.id")
+        ->join("ciclos", "grados.ciclo", "=", "ciclos.id")
+        ->select("cursos.id","cursos.nombre","cursos.descrip","grados.grado","ciclos.ciclo", "grados.id as grado_id")
+        ->where('cursos.id','=', $id)
+        ->orderBy('grados.grado', 'ASC')
+        ->orderBy('ciclos.ciclo', 'ASC')
+        ->orderBy('cursos.nombre', 'ASC')
+        ->get();
+        // $datos = $datos[0];
+        $grado = $datos[0]->grado_id;
+
+        // $datos['estudiantes']=estudiante::all();
+
+        $dat=estudiante::leftJoin("notas", "estudiantes.id", "=", "notas.estudiante")
+        ->select('estudiantes.id as est_id','estudiantes.PrimerNombre','estudiantes.SegundoNombre','estudiantes.ApellidoPaterno','estudiantes.ApellidoMaterno','estudiantes.grado',
+        'notas.unidad1','notas.unidad2','notas.unidad3','notas.unidad4', 'notas.id as nota_id', 'notas.curso' )
+        ->where('estudiantes.grado','=', $grado)
+        ->where('notas.curso','=', $id)
+        ->orWhereNull('notas.curso')
+        ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
+        ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
+        ->orderBy('estudiantes.PrimerNombre', 'ASC')
+        ->orderBy('estudiantes.SegundoNombre', 'ASC')
+        ->get();
+
+        return view('cursos.notas',compact('datos', 'dat'));
+        // return view('cursos.notas', compact('curso','grado','ciclo'));
     }
 
     /**

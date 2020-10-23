@@ -61,7 +61,6 @@ padding-bottom: 2px;
                     <td>{{$estudio->Apellidos}}, {{$estudio->Nombres}}</td>
                     <td><a href="{{url('/estudiosocioeconimico/'.$estudio->id.'/edit')}}"><i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
                         <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
-                        <a  href="#"> <i class="fa fa-trash  ml-3 disabled"   placeholder="Eliminar"></i> </a>
                         <form method="POST" action="{{ url('/estudiosocioeconimico/'.$estudio->id) }}"  class="d-inline">
                           @csrf
                           @method('DELETE')
