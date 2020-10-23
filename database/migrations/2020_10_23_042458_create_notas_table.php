@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGradosTable extends Migration
+class CreateNotasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateGradosTable extends Migration
      */
     public function up()
     {
-        Schema::create('grados', function (Blueprint $table) {
+        Schema::create('notas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('Area')->nullable();
-            $table->integer('ciclo')->nullable();
-            $table->string('grado')->nullable();
+            $table->integer('estudiante');
+            $table->integer('curso');
+            $table->double('unidad1',6, 2);
+            $table->double('unidad2',6, 2);
+            $table->double('unidad3',6, 2);
+            $table->double('unidad4',6, 2);
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateGradosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grados');
+        Schema::dropIfExists('notas');
     }
 }

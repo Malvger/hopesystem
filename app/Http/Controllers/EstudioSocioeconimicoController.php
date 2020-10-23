@@ -19,7 +19,7 @@ class EstudioSocioeconimicoController extends Controller
     public function index()
     {
         //
-        $datos['estudiosocioeconimico']=EstudioSocioeconimico::paginate(5);
+        $datos['estudiosocioeconimico']=EstudioSocioeconimico::all();
         return view('estudiosocioeconimico.index',$datos);
 
     }
@@ -48,7 +48,7 @@ class EstudioSocioeconimicoController extends Controller
               $datosEstudiante=request()->except('_token');
               EstudioSocioeconimico::insert($datosEstudiante);
               //return response()->json($datosEstudiante);
-              $datos['estudiosocioeconimico']=EstudioSocioeconimico::paginate(5);
+              $datos['estudiosocioeconimico']=EstudioSocioeconimico::all();
               return view('estudiosocioeconimico.index',$datos);
     }
 
@@ -147,8 +147,11 @@ class EstudioSocioeconimicoController extends Controller
      * @param  \App\EstudioSocioeconimico  $estudioSocioeconimico
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EstudioSocioeconimico $estudioSocioeconimico)
+    public function destroy( $id)
     {
         //
+        $post = EstudioSocioeconimico::find($id);
+        $post->delete();
+        return redirect('/estudiosocioeconimico');
     }
 }

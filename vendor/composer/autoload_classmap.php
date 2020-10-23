@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Ciclo' => $baseDir . '/app/Ciclo.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Estudiantes1' => $baseDir . '/app/Estudiantes1.php',
     'App\\EstudioSocioeconimico' => $baseDir . '/app/EstudioSocioeconimico.php',
@@ -16,11 +17,13 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
+    'App\\Http\\Controllers\\CicloController' => $baseDir . '/app/Http/Controllers/CicloController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\CursoController' => $baseDir . '/app/Http/Controllers/CursoController.php',
     'App\\Http\\Controllers\\EstudianteController' => $baseDir . '/app/Http/Controllers/EstudianteController.php',
     'App\\Http\\Controllers\\Estudiantes1Controller' => $baseDir . '/app/Http/Controllers/Estudiantes1Controller.php',
     'App\\Http\\Controllers\\EstudioSocioeconimicoController' => $baseDir . '/app/Http/Controllers/EstudioSocioeconimicoController.php',
+    'App\\Http\\Controllers\\GradoController' => $baseDir . '/app/Http/Controllers/GradoController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\SaludPsicologicaController' => $baseDir . '/app/Http/Controllers/SaludPsicologicaController.php',
     'App\\Http\\Controllers\\SituacionViviendaController' => $baseDir . '/app/Http/Controllers/SituacionViviendaController.php',
@@ -43,6 +46,7 @@ return array(
     'App\\User' => $baseDir . '/app/User.php',
     'App\\curso' => $baseDir . '/app/curso.php',
     'App\\estudiante' => $baseDir . '/app/estudiante.php',
+    'App\\notas' => $baseDir . '/app/notas.php',
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
     'BeyondCode\\DumpServer\\DumpServerServiceProvider' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
     'BeyondCode\\DumpServer\\Dumper' => $vendorDir . '/beyondcode/laravel-dump-server/src/Dumper.php',

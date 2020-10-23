@@ -21,7 +21,7 @@ class EstudianteController extends Controller
     public function index()
     {
         //
-        $datos['estudiantes']=estudiante::paginate(5);
+        $datos['estudiantes']=estudiante::all();
         return view('estudiantes.index',$datos);
     }
 
@@ -50,7 +50,7 @@ class EstudianteController extends Controller
         $datosEstudiante=request()->except('_token');
         estudiante::insert($datosEstudiante);
         //return response()->json($datosEstudiante);
-        $datos['estudiantes']=estudiante::paginate(5);
+        $datos['estudiantes']=estudiante::all();
         return view('estudiantes.index',$datos);
     }
 
@@ -127,6 +127,9 @@ class EstudianteController extends Controller
     public function destroy($id)
     {
         //
-        estudiante::destroy($id);
+        // estudiante::destroy($id);
+        $post = estudiante::find($id);
+        $post->delete();
+        return redirect('/estudiantes');
     }
 }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Grado;
-use Illuminate\Http\Request;
+use App\Ciclo;
+use Illuminate\Http\Request; 
 use App\Http\Controllers\Controller;
 
 class GradoController extends Controller
@@ -16,7 +17,16 @@ class GradoController extends Controller
     public function index()
     {
         //
-        $datos['grado']=Grado::paginate(5);
+        // $datos['grado']=Grado::all();
+
+        // $datos['ciclo']=Ciclo::all();
+            //{"id":3,"Area":null,"ciclo":"Medio","grado":"Primero"}
+        $datos['grado'] = Grado::join("ciclos", "ciclos.id", "=", "grados.ciclo")
+                            ->select("grados.id","ciclos.ciclo","grados.grado")
+                            ->orderBy('ciclos.ciclo', 'ASC')
+                            ->orderBy('grados.grado', 'ASC')
+                            ->get();
+
         return view('grados.index',$datos);
     }
 
@@ -28,7 +38,10 @@ class GradoController extends Controller
     public function create()
     {
         //
-        return view('grados.create');
+        $ciclo=Ciclo::all();
+
+        return view('grados.create', compact('ciclo'));
+        // return view('grados.create');
     }
 
     /**
@@ -39,13 +52,17 @@ class GradoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-                //
-        //$datosEstudiante=Request()->all();
+ 
         $datosGrado=request()->except('_token');
         Grado::insert($datosGrado);
-        //return response()->json($datosEstudiante);
-        $datos['grados']=Grado::paginate(5);
+
+
+        $datos['grado'] = Grado::join("ciclos", "ciclos.id", "=", "grados.ciclo")
+        ->select("grados.id","ciclos.ciclo","grados.grado")
+        ->orderBy('ciclos.ciclo', 'ASC')
+        ->orderBy('grados.grado', 'ASC')
+        ->get();
+        
         return view('grados.index',$datos);
     }
 
@@ -71,7 +88,9 @@ class GradoController extends Controller
         //
         $grado=Grado::findOrFail($id);
 
-        return view('grados.edit', compact('grado'));
+        $ciclo=Ciclo::all();
+
+        return view('grados.edit', compact('grado','ciclo'));
     }
 
     /**
@@ -93,7 +112,11 @@ class GradoController extends Controller
         
         // return $datosEstudiante;
 
-        return view('grados.edit', compact('grado'));
+        //return view('grados.edit', compact('grado'));
+        
+        $ciclo=Ciclo::all();
+
+        return view('grados.edit', compact('grado','ciclo'));
     }
 
     /**
@@ -105,6 +128,13 @@ class GradoController extends Controller
     public function destroy( $id)
     {
         //
-        Grado::destroy($id);
+    //     Grado::findOrFail($id)->delete();
+    //    return redirect('grado');
+        // Grado::destroy($id);
+        $post = Grado::find($id);
+        $post->delete();
+        return redirect('/grados');
+
+
     }
 }
