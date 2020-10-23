@@ -10137,8 +10137,8 @@ a:focus {
 
 .sidebar .nav-item .nav-link .img-profile,
 .topbar .nav-item .nav-link .img-profile {
-  height: 2rem;
-  width: 2rem;
+  height: 20px;
+  width: 20px;
 }
 
 .topbar {

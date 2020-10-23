@@ -42,3 +42,7 @@ php artisan make:model modeloX -mcr
 
 php artisan migrate
 
+reset and migrate 
+
+php artisan migrate:reset
+php artisan migrate 

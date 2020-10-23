@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\DinamicaFamiliar;
+use App\notas;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class DinamicaFamiliarController extends Controller
+class NotasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,6 @@ class DinamicaFamiliarController extends Controller
     public function index()
     {
         //
-        return view('estudiantes.index');
     }
 
     /**
@@ -26,7 +26,6 @@ class DinamicaFamiliarController extends Controller
     public function create()
     {
         //
-        return view ('estudiantes.create');
     }
 
     /**
@@ -43,10 +42,10 @@ class DinamicaFamiliarController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\DinamicaFamiliar  $dinamicaFamiliar
+     * @param  \App\notas  $notas
      * @return \Illuminate\Http\Response
      */
-    public function show(DinamicaFamiliar $dinamicaFamiliar)
+    public function show(notas $notas)
     {
         //
     }
@@ -54,10 +53,10 @@ class DinamicaFamiliarController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\DinamicaFamiliar  $dinamicaFamiliar
+     * @param  \App\notas  $notas
      * @return \Illuminate\Http\Response
      */
-    public function edit(DinamicaFamiliar $dinamicaFamiliar)
+    public function edit(notas $notas)
     {
         //
     }
@@ -66,10 +65,10 @@ class DinamicaFamiliarController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\DinamicaFamiliar  $dinamicaFamiliar
+     * @param  \App\notas  $notas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DinamicaFamiliar $dinamicaFamiliar)
+    public function update(Request $request, notas $notas)
     {
         //
     }
@@ -77,10 +76,10 @@ class DinamicaFamiliarController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\DinamicaFamiliar  $dinamicaFamiliar
+     * @param  \App\notas  $notas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DinamicaFamiliar $dinamicaFamiliar)
+    public function destroy(notas $notas)
     {
         //
     }

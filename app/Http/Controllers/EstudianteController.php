@@ -12,7 +12,7 @@ class EstudianteController extends Controller
     {
         $this->middleware('auth');
     }
-    /**
+    /** 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -20,7 +20,7 @@ class EstudianteController extends Controller
     public function index()
     {
         //
-        $datos['estudiantes']=estudiante::paginate(5);
+        $datos['estudiantes']=estudiante::all();
         return view('estudiantes.index',$datos);
     }
 
@@ -48,7 +48,7 @@ class EstudianteController extends Controller
         $datosEstudiante=request()->except('_token');
         estudiante::insert($datosEstudiante);
         //return response()->json($datosEstudiante);
-        $datos['estudiantes']=estudiante::paginate(5);
+        $datos['estudiantes']=estudiante::all();
         return view('estudiantes.index',$datos);
     }
 
@@ -93,6 +93,19 @@ class EstudianteController extends Controller
         $datosEstudiante['RepitenteSi']=isset($datosEstudiante['RepitenteSi'])?'1':'0';
         $datosEstudiante['RepitenteNo']=isset($datosEstudiante['RepitenteNo'])?'1':'0';
 
+
+        $datosEstudiante['DPISi']=isset($datosEstudiante['DPISi'])?'1':'0';
+        $datosEstudiante['ProblemaFamiliarSi']=isset($datosEstudiante['ProblemaFamiliarSi'])?'1':'0';
+        $datosEstudiante['PadresSeparadosSi']=isset($datosEstudiante['PadresSeparadosSi'])?'1':'0';
+        $datosEstudiante['CertificadoRENAP']=isset($datosEstudiante['CertificadoRENAP'])?'1':'0';
+        $datosEstudiante['DPIPapa']=isset($datosEstudiante['DPIPapa'])?'1':'0';
+        $datosEstudiante['vacunacion']=isset($datosEstudiante['vacunacion'])?'1':'0';
+        $datosEstudiante['diplomapre']=isset($datosEstudiante['diplomapre'])?'1':'0';
+        $datosEstudiante['DPIMama']=isset($datosEstudiante['DPIMama'])?'1':'0';
+        $datosEstudiante['codigopersonalSi']=isset($datosEstudiante['codigopersonalSi'])?'1':'0';
+        $datosEstudiante['buenaConductaSi']=isset($datosEstudiante['buenaConductaSi'])?'1':'0';
+        $datosEstudiante['certificadoOriginal']=isset($datosEstudiante['certificadoOriginal'])?'1':'0';
+
         estudiante::where('id','=', $id)->update($datosEstudiante);
 
         $estudiante=estudiante::findOrFail($id);
@@ -112,6 +125,9 @@ class EstudianteController extends Controller
     public function destroy($id)
     {
         //
-        estudiante::destroy($id);
+        // estudiante::destroy($id);
+        $post = estudiante::find($id);
+        $post->delete();
+        return redirect('/estudiantes');
     }
 }
