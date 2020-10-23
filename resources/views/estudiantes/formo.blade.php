@@ -42,7 +42,7 @@
     </div>
     <div class="col clearfix">
         <span class="float-right">
-            <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+            <input type="button" class="btn btn-primary" value=">" onClick="selectTab('nav-asignacion');">
         </span>
     </div>
 </div>

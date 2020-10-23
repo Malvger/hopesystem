@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\estudiante;
+use App\Grado;
 use Illuminate\Http\Request;
 
 class EstudianteController extends Controller
@@ -32,7 +33,8 @@ class EstudianteController extends Controller
     public function create()
     {
         //
-        return view('estudiantes.create');
+        $grados = Grado::all();
+        return view('estudiantes.create', compact('grados'));
     }
 
     /**
