@@ -35,8 +35,21 @@ Route::patch('estudiantes1/{id}/edit', 'Estudiantes1Controller@update')->name('e
 Route::resource('estudiosocioeconimico', 'EstudioSocioeconimicoController');
 Route::patch('estudiosocioeconimico/{id}/edit', 'EstudioSocioeconimicoController@update')->name('estudiosocioeconimico.update');
 
+
+Route::get('cursos/{id}/notas', 'CursoController@notas')->name('cursos.notas');
+// Route::patch('cursos/{id}/notas', 'CursoController@notas')->name('cursos.notas');
+Route::post('cursos/{id}/notas', 'CursoController@notas')->name('cursos.notas');
+
 Route::resource('cursos', 'CursoController');
 Route::patch('cursos/{id}/edit', 'CursoController@update')->name('cursos.update'); 
+Route::delete('cursos/{id}', 'GradoController@destroy')->name('cursos.destroy');
 
 Route::resource('grados', 'GradoController');
 Route::patch('grados/{id}/edit', 'GradoController@update')->name('grados.update'); 
+Route::delete('grados/{id}', 'GradoController@destroy')->name('grados.destroy');
+
+Route::resource('notas', 'NotasController');
+Route::patch('notas/{id}/edit', 'NotasController@update')->name('notas.update'); 
+Route::POST('notas/create', 'NotasController@create')->name('notas.create'); 
+
+Route::resource('reportes', 'ReportesController');

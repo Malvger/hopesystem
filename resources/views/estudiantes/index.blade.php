@@ -13,6 +13,16 @@
   /*optional*/ pointer-events: none; 
 }
 
+.delete 
+{ 
+background: #ffffff; 
+background-position: 0px -401px; 
+border:0; 
+height: 21px;
+margin-top: -1px;
+padding-bottom: 2px;
+}
+.delete:hover {background: white;background-position: 0px -501px;color: #000000; }
 
 </style>
 <!-- Begin Page Content -->
@@ -41,7 +51,7 @@
               <tr>
                 <th>#</th>
                 <th>Nombre</th>
-                <th>Grado</th>
+                <th>Ciclo / Grado</th>
                 <th>CUI</th>
                 {{-- <th>Primer Nombre</th>
                 <th>Segundo Nombre</th>
@@ -57,7 +67,7 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$estudiante->ApellidoPaterno}} {{$estudiante->ApellidoMaterno}}, {{$estudiante->PrimerNombre}} {{$estudiante->SegundoNombre}}</td>
-                    <td>{{$estudiante->grado}}</td>
+                    <td>{{$estudiante->ciclo}} / {{$estudiante->grado}} </td>
                     <td>{{$estudiante->CUI}}</td>
                     {{-- <td>{{$estudiante->PrimerNombre}}</td>
                     <td>{{$estudiante->SegundoNombre}}</td>
@@ -67,13 +77,12 @@
                     <td>{{$estudiante->Edad}}</td>
                     <td><a href="{{url('/estudiantes/'.$estudiante->id.'/edit')}}" > <i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
                         <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
-                        <a  href="#"> <i class="fa fa-trash  ml-3 disabled"   placeholder="Eliminar"></i> </a>
-                       
-                    {{-- <form method="POST" accept="{{url('/estudiantes/'.$estudiante->id)}}" >
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <button type="submit" onclick="return confirm('Borrar?')">Borrar</button>
-                    </form> --}}
+                        <form method="POST" action="{{ url('/estudiantes/'.$estudiante->id) }}"  class="d-inline">
+                          @csrf
+                          @method('DELETE')
+                          <button class='delete' type="submit" > <i class="fa fa-trash-alt  ml-3"   placeholder="Eliminar"></i> </button>
+                          
+                        </form>
  
                     </td>
                 </tr>

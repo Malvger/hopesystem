@@ -12,7 +12,16 @@
   /*optional*/ cursor: not-allowed;
   /*optional*/ pointer-events: none;
 }
-
+.delete 
+{ 
+background: #ffffff; 
+background-position: 0px -401px; 
+border:0; 
+height: 21px;
+margin-top: -1px;
+padding-bottom: 2px;
+}
+.delete:hover {background: white;background-position: 0px -501px;color: #000000; }
 
 </style>
 <!-- Begin Page Content -->
@@ -40,8 +49,9 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Nombre de Curso</th>
-                <th>Descripción de Curso</th>
+                <th>Nombre </th>
+                <th>Ciclo / Grado</th>
+                <th>Descripción</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -50,11 +60,17 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$curso->nombre}}</td>
+                    <td>{{$curso->ciclo}} / {{$curso->grado}}</td>
                     <td>{{$curso->descrip}}</td>
                     <td><a href="{{url('/cursos/'.$curso->id.'/edit')}}" > <i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
-                        <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
-                        <a  href="#"> <i class="fa fa-trash  ml-3 disabled"   placeholder="Eliminar"></i> </a>
- 
+                    <a  href="{{url('/cursos/'.$curso->id.'/notas')}}"> <i class="fa fa-book ml-3"  placeholder="Notas"></i> </a>
+                        <a  href="#"> <i class="fa fa-print ml-3"  placeholder="Imprimir"></i> </a> 
+                        <form method="POST" action="{{ url('/cursos/'.$curso->id) }}"  class="d-inline">
+                        @csrf
+                          @method('DELETE')
+                          <button class='delete' type="submit" > <i class="fa fa-trash-alt  ml-3"   placeholder="Eliminar"></i> </button>
+                          
+                        </form>
                     </td>
                 </tr>
 

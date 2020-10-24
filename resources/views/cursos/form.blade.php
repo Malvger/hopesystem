@@ -2,15 +2,42 @@
 <br>
 <table class="table table-bordered" width="100%" cellspacing="0">
     <tbody>
+    <tr class="bg-secondary text-white">
+            <td >{{ __('Ciclo - Grado ') }}
+            
+
+
+            </td>
+        </tr>
+        <tr>
+            <td >  
+                <select id="grado" class="form-control" name="grado">  
+                    @foreach ($grado as $grados)           
+                         <option value="{{$grados->id}}" 
+                                {{isset($grados->ciclo)?
+                                    isset($curso->grado)?
+                                        $grados->id==$curso->grado?'selected':''
+                                            :''
+                                        :'' }} >
+                        
+                            @foreach ($ciclo as $ci) 
+                                {{$grados->ciclo==$ci->id?$ci->ciclo:''}}
+                            @endforeach
+                            - {{$grados->grado}}
+                         </option>
+                     @endforeach
+                 </select>
+            </td> 
+        </tr>
         <tr class="bg-secondary text-white">
-            <td >Nombre de Curso </td>
+            <td >Nombre</td>
         </tr>
         <tr>
             <td > <input id="nombre" type="text" class="form-control" name="nombre"  required
                 value="{{isset($curso->nombre)?$curso->nombre:'' }}"> </td>
         </tr>
         <tr class="bg-secondary text-white">
-            <td >Descripción de Curso  </td>
+            <td >Descripción</td>
         </tr>
         <tr>
             <td >

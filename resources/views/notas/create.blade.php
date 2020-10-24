@@ -5,17 +5,16 @@
     <div class="row justify-content-center">
         <div class="container-fluid">
             <div class="card">
-                <div class="card-header">{{ __('GRADO ') }}</div>
+                <div class="card-header">{{ __('NOTAS') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('grados/'.$grado->id.'/edit') }}">
+                    <form method="POST" action="{{ url('/cursos/'.$curso.'/notas') }}">
                         {{ csrf_field() }}
-                        {{method_field('PATCH')}}
-                        @include('grados.form', ['Modo'=>'modificar'])
+                        @include('notas.form', ['Modo'=>'crear'])
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+@endsection 

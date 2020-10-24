@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGradosTable extends Migration
+class CreateReportesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateGradosTable extends Migration
      */
     public function up()
     {
-        Schema::create('grados', function (Blueprint $table) {
+        Schema::create('reportes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('Area')->nullable();
-            $table->integer('ciclo')->nullable();
-            $table->string('grado')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateGradosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grados');
+        Schema::dropIfExists('reportes');
     }
 }

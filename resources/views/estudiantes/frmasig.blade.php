@@ -7,9 +7,12 @@
         </tr>
         <tr>
             <td>
+                <!-- <p>{{$grados}}</p> -->
                 <select id="grado" class="form-control" name="grado">  
                     @foreach($grados as $grad)
-                        <option value="{{$grad->grado}}">{{$grad->grado}}</option>
+                        <option value="{{$grad->id}}"
+                        {{isset($estudiante->grado)?$estudiante->grado==$grad->id?'selected':'':'' }}
+                        >{{$grad->ciclo}} - {{$grad->grado}}</option>
                     @endforeach
                 </select>
             </td>
