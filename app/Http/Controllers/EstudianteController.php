@@ -33,8 +33,23 @@ class EstudianteController extends Controller
     public function create()
     {
         //
+<<<<<<< Updated upstream
         $grados = Grado::all();
         return view('estudiantes.create', compact('grados'));
+=======
+
+        // return view('estudiantes.create');
+        // $estudiante=estudiante::findOrFail($id);
+        $grados = Ciclo::join("grados", "ciclos.id", "=", "grados.ciclo")
+        ->select("grados.id",'grados.grado','ciclos.ciclo')
+        ->orderBy('ciclos.ciclo', 'ASC')
+        ->orderBy('grados.grado', 'ASC')
+        ->get();
+
+
+        return view('estudiantes.create', compact('grados'));
+
+>>>>>>> Stashed changes
     }
 
     /**
