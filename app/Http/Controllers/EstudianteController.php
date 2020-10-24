@@ -44,7 +44,15 @@ class EstudianteController extends Controller
 
         //
 
-        $datos['estudiantes']=estudiante::all();
+       // $datos['estudiantes']=estudiante::all();
+       $datos['estudiantes'] = estudiante::join("grados", "grados.id", "=", "estudiantes.grado")
+       ->join("ciclos", "ciclos.id", "=", "grados.ciclo")
+       ->select("*")
+       ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
+       ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
+       ->orderBy('estudiantes.PrimerNombre', 'ASC')
+       ->orderBy('estudiantes.SegundoNombre', 'ASC')
+       ->get();
 
         return view('estudiantes.index',$datos);
 
@@ -109,9 +117,16 @@ class EstudianteController extends Controller
 
         //return response()->json($datosEstudiante);
 
-        $datos['estudiantes']=estudiante::all();
-
-        return view('estudiantes.index',$datos);
+        $datos['estudiantes'] = estudiante::join("grados", "grados.id", "=", "estudiantes.grado")
+        ->join("ciclos", "ciclos.id", "=", "grados.ciclo")
+        ->select("*")
+        ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
+        ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
+        ->orderBy('estudiantes.PrimerNombre', 'ASC')
+        ->orderBy('estudiantes.SegundoNombre', 'ASC')
+        ->get();
+ 
+         return view('estudiantes.index',$datos);
 
     }
 

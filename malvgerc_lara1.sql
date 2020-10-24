@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 21-10-2020 a las 06:11:02
+-- Tiempo de generación: 24-10-2020 a las 05:15:02
 -- Versión del servidor: 5.6.49
 -- Versión de PHP: 7.3.6
 
@@ -30,6 +30,7 @@ USE `malvgerc_lara1`;
 -- Estructura de tabla para la tabla `ciclos`
 --
 
+DROP TABLE IF EXISTS `ciclos`;
 CREATE TABLE `ciclos` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `ciclo` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -53,9 +54,10 @@ INSERT INTO `ciclos` (`id`, `ciclo`, `created_at`, `updated_at`) VALUES
 -- Estructura de tabla para la tabla `cursos`
 --
 
+DROP TABLE IF EXISTS `cursos`;
 CREATE TABLE `cursos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `curso` int(11) DEFAULT NULL,
+  `grado` int(11) DEFAULT NULL,
   `nombre` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `descrip` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -66,8 +68,8 @@ CREATE TABLE `cursos` (
 -- Volcado de datos para la tabla `cursos`
 --
 
-INSERT INTO `cursos` (`id`, `curso`, `nombre`, `descrip`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Matemáticas 01', 'Algebra', NULL, NULL);
+INSERT INTO `cursos` (`id`, `grado`, `nombre`, `descrip`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Matemáticas 01', 'Algebra', NULL, '2020-10-24 01:14:22');
 
 -- --------------------------------------------------------
 
@@ -75,6 +77,7 @@ INSERT INTO `cursos` (`id`, `curso`, `nombre`, `descrip`, `created_at`, `updated
 -- Estructura de tabla para la tabla `estudiantes`
 --
 
+DROP TABLE IF EXISTS `estudiantes`;
 CREATE TABLE `estudiantes` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `Area` int(11) NOT NULL,
@@ -126,6 +129,7 @@ CREATE TABLE `estudiantes` (
   `diplomapre` tinyint(1) DEFAULT NULL,
   `certificadoOriginal` tinyint(1) DEFAULT NULL,
   `Observaciones` text COLLATE utf8mb4_unicode_ci,
+  `grado` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -134,9 +138,9 @@ CREATE TABLE `estudiantes` (
 -- Volcado de datos para la tabla `estudiantes`
 --
 
-INSERT INTO `estudiantes` (`id`, `Area`, `PrimerNombre`, `SegundoNombre`, `ApellidoPaterno`, `ApellidoMaterno`, `Sexo`, `Edad`, `CUI`, `ComunidadEtnica`, `LugarNacimiento`, `FechaNacimiento`, `IdiomaMaterno`, `SugundoIdioma`, `NombreApellidoMadre`, `NombreApellidoPadre`, `DPIMadre`, `TelMadre`, `DPIPadre`, `TelPadre`, `NombreApellidoEncargado`, `DPIMadreEncargado`, `TelMadreEncargado`, `DireccionDomicilioEstudiante`, `EstablecimientoProviene`, `GradoIngresar`, `RepitenteSi`, `RepitenteNo`, `Noveces`, `ProbSaludEstudiante`, `ProbSaludHogar`, `NombProbSaludHogar`, `DiscEstudiante`, `CertificadoDiscapacidad`, `DiscFamilia`, `ProblemaFamiliarSi`, `Explique`, `PadresSeparadosSi`, `DPISi`, `Razones`, `RazonesPorque`, `CertificadoRENAP`, `DPIPapa`, `vacunacion`, `DPIMama`, `codigopersonalSi`, `buenaConductaSi`, `diplomapre`, `certificadoOriginal`, `Observaciones`, `created_at`, `updated_at`) VALUES
-(1, 0, 'Juan', 'Miguel', 'Perez', 'Garcia', 'Masculino', 14, '546546515', 'Maya', 'Coban', '2009-02-15', 'Español', 'Español', 'Carla Garcia', 'Carlos Perez', '5465465456', '56465465', '4654654', '46546489', 'Carlos miquel', 'j65464', '65465465', 'Coban', '5846', '5', 1, 0, 2, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, NULL, NULL, 1, 1, 1, 0, 1, 1, 1, 1, 'N/A', NULL, '2020-10-21 01:12:50'),
-(3, 1, 'Gabriel', 'Gerardo', 'Castro', 'Vega', 'Masculino', 24, '123456789', 'Ladino', 'Fray Bartolomé', '1995-06-12', 'Español', 'Español', 'Gabriela Castro', 'Gabriel Castro', '123456789', '123456789', '123456789', '123456789', 'Luis Gustavo Caal Pop', '12345666', '123456789', 'Cobán', 'UMG', '6o. primaria', 0, 0, 5, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'Cliente prueba', '2020-09-17 04:47:11', '2020-10-19 22:45:18');
+INSERT INTO `estudiantes` (`id`, `Area`, `PrimerNombre`, `SegundoNombre`, `ApellidoPaterno`, `ApellidoMaterno`, `Sexo`, `Edad`, `CUI`, `ComunidadEtnica`, `LugarNacimiento`, `FechaNacimiento`, `IdiomaMaterno`, `SugundoIdioma`, `NombreApellidoMadre`, `NombreApellidoPadre`, `DPIMadre`, `TelMadre`, `DPIPadre`, `TelPadre`, `NombreApellidoEncargado`, `DPIMadreEncargado`, `TelMadreEncargado`, `DireccionDomicilioEstudiante`, `EstablecimientoProviene`, `GradoIngresar`, `RepitenteSi`, `RepitenteNo`, `Noveces`, `ProbSaludEstudiante`, `ProbSaludHogar`, `NombProbSaludHogar`, `DiscEstudiante`, `CertificadoDiscapacidad`, `DiscFamilia`, `ProblemaFamiliarSi`, `Explique`, `PadresSeparadosSi`, `DPISi`, `Razones`, `RazonesPorque`, `CertificadoRENAP`, `DPIPapa`, `vacunacion`, `DPIMama`, `codigopersonalSi`, `buenaConductaSi`, `diplomapre`, `certificadoOriginal`, `Observaciones`, `grado`, `created_at`, `updated_at`) VALUES
+(1, 0, 'Juan', 'Miguel', 'Perez', 'Garcia', 'Masculino', 14, '546546515', 'Maya', 'Coban', '2009-02-15', 'Español', 'Español', 'Carla Garcia', 'Carlos Perez', '5465465456', '56465465', '4654654', '46546489', 'Carlos miquel', 'j65464', '65465465', 'Coban', '5846', '5', 1, 0, 2, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, NULL, NULL, 1, 1, 1, 0, 1, 1, 1, 1, 'N/A', 1, NULL, '2020-10-21 01:12:50'),
+(3, 1, 'Gabriel', 'Gerardo', 'Castro', 'Vega', 'Masculino', 24, '123456789', 'Ladino', 'Fray Bartolomé', '1995-06-12', 'Español', 'Español', 'Gabriela Castro', 'Gabriel Castro', '123456789', '123456789', '123456789', '123456789', 'Luis Gustavo Caal Pop', '12345666', '123456789', 'Cobán', 'UMG', '6o. primaria', 0, 0, 5, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'Cliente prueba', 1, '2020-09-17 04:47:11', '2020-10-19 22:45:18');
 
 -- --------------------------------------------------------
 
@@ -144,6 +148,7 @@ INSERT INTO `estudiantes` (`id`, `Area`, `PrimerNombre`, `SegundoNombre`, `Apell
 -- Estructura de tabla para la tabla `estudiantes1s`
 --
 
+DROP TABLE IF EXISTS `estudiantes1s`;
 CREATE TABLE `estudiantes1s` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `PrimerNombre` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -212,6 +217,7 @@ INSERT INTO `estudiantes1s` (`id`, `PrimerNombre`, `SegundoNombre`, `ApellidoPat
 -- Estructura de tabla para la tabla `estudio_socioeconimicos`
 --
 
+DROP TABLE IF EXISTS `estudio_socioeconimicos`;
 CREATE TABLE `estudio_socioeconimicos` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `Apellidos` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -297,6 +303,7 @@ INSERT INTO `estudio_socioeconimicos` (`id`, `Apellidos`, `Nombres`, `Sexo`, `Ed
 -- Estructura de tabla para la tabla `grados`
 --
 
+DROP TABLE IF EXISTS `grados`;
 CREATE TABLE `grados` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `Area` int(11) DEFAULT NULL,
@@ -319,6 +326,7 @@ INSERT INTO `grados` (`id`, `Area`, `grado`, `created_at`, `updated_at`, `ciclo`
 -- Estructura de tabla para la tabla `migrations`
 --
 
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -336,9 +344,36 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `notas`
+--
+
+DROP TABLE IF EXISTS `notas`;
+CREATE TABLE `notas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `estudiante` int(11) NOT NULL,
+  `curso` int(11) NOT NULL,
+  `unidad1` double(6,2) NOT NULL,
+  `unidad2` double(6,2) NOT NULL,
+  `unidad3` double(6,2) NOT NULL,
+  `unidad4` double(6,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `notas`
+--
+
+INSERT INTO `notas` (`id`, `estudiante`, `curso`, `unidad1`, `unidad2`, `unidad3`, `unidad4`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, 80.00, 90.00, 0.00, 0.00, NULL, '2020-10-24 01:14:08');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `password_resets`
 --
 
+DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -360,6 +395,7 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- Estructura de tabla para la tabla `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -427,6 +463,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `notas`
+--
+ALTER TABLE `notas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -470,6 +512,12 @@ ALTER TABLE `estudio_socioeconimicos`
 -- AUTO_INCREMENT de la tabla `grados`
 --
 ALTER TABLE `grados`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `notas`
+--
+ALTER TABLE `notas`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --

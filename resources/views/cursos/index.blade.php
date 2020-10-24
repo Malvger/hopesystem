@@ -66,7 +66,7 @@ padding-bottom: 2px;
                     <a  href="{{url('/cursos/'.$curso->id.'/notas')}}"> <i class="fa fa-book ml-3"  placeholder="Notas"></i> </a>
                         <a  href="#"> <i class="fa fa-print ml-3"  placeholder="Imprimir"></i> </a> 
                         <form method="POST" action="{{ url('/cursos/'.$curso->id) }}"  class="d-inline">
-                          @csrf
+                        @csrf
                           @method('DELETE')
                           <button class='delete' type="submit" > <i class="fa fa-trash-alt  ml-3"   placeholder="Eliminar"></i> </button>
                           

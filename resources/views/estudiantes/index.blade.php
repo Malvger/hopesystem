@@ -51,7 +51,7 @@ padding-bottom: 2px;
               <tr>
                 <th>#</th>
                 <th>Nombre</th>
-                <th>Grado</th>
+                <th>Ciclo / Grado</th>
                 <th>CUI</th>
                 {{-- <th>Primer Nombre</th>
                 <th>Segundo Nombre</th>
@@ -67,7 +67,7 @@ padding-bottom: 2px;
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$estudiante->ApellidoPaterno}} {{$estudiante->ApellidoMaterno}}, {{$estudiante->PrimerNombre}} {{$estudiante->SegundoNombre}}</td>
-                    <td>{{$estudiante->grado}}</td>
+                    <td>{{$estudiante->ciclo}} / {{$estudiante->grado}} </td>
                     <td>{{$estudiante->CUI}}</td>
                     {{-- <td>{{$estudiante->PrimerNombre}}</td>
                     <td>{{$estudiante->SegundoNombre}}</td>

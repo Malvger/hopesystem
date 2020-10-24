@@ -16,6 +16,7 @@ class NotasController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -23,9 +24,10 @@ class NotasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+
     }
 
     /**
@@ -56,9 +58,10 @@ class NotasController extends Controller
      * @param  \App\notas  $notas
      * @return \Illuminate\Http\Response
      */
-    public function edit(notas $notas)
+    public function edit($id )
     {
         //
+        // return view('notas.create');
     }
 
     /**
@@ -71,6 +74,8 @@ class NotasController extends Controller
     public function update(Request $request, notas $notas)
     {
         //
+        $datos=request()->except('_token','_method');
+        return view('notas.create',$datos);
     }
 
     /**
