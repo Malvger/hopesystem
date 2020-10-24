@@ -74,7 +74,9 @@ class EstudianteController extends Controller
 
     {
 
-        //
+       // $grados = Grado::all();
+        //return view('estudiantes.create', compact('grados'));
+
 
         // return view('estudiantes.create');
         // $estudiante=estudiante::findOrFail($id);
@@ -84,8 +86,7 @@ class EstudianteController extends Controller
         ->orderBy('grados.grado', 'ASC')
         ->get();
 
-
-        return view('estudiantes.edit', compact('grados'));
+        return view('estudiantes.create', compact('grados'));
 
     }
 
