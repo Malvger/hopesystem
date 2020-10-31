@@ -7,14 +7,14 @@
             <div class="card">
                 <div class="card-header"></div>
 
-                <div class="card-body align-middle">
+                <div  class="card-body align-middle " style="text-align: center;" >
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <img src="{{asset('assets/img/logo_black.png')}}" >
+                    <img  src="{{asset('assets/img/logo_black.png')}}" >
                 </div>
             </div>
         </div>

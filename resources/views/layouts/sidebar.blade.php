@@ -18,18 +18,36 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-fw fa-wrench"></i>
-        <span>Estudiantes</span>
+      <a class="nav-link collapsed" href="{{ url('/estudiantes') }}" >
+        <i class="fas fa-user-graduate"></i>
+        <span>Estudiante</span>
       </a>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Menu Estudiantes</h6>
-          <a class="collapse-item" href="{{ url('/estudiantes') }}">Lista</a>
-          <a class="collapse-item" href="{{ url('/estudiantes/create') }}">Nuevo Estudiante</a>
-        </div>
-      </div>
     </li>
+{{-- Estudio Socioeconómico --}}
+<li class="nav-item">
+  <a class="nav-link collapsed"  href="{{ url('/estudiosocioeconimico') }}" >
+    <!-- <i class="fas fa-fw fa-wrench"></i> -->
+    <i class="fas fa-dollar-sign"></i>
+    <span>Estudio Socioeconómico</span>
+  </a>
+</li>
+<div class="sidebar-heading">
+      Administracion
+    </div>
+<li class="nav-item">
+  <a class="nav-link collapsed"  href="{{ url('/grados') }}" >
+    <!-- <i class="fas fa-fw fa-wrench"></i> -->
+    <i class="fas fa-chalkboard-teacher"></i>
+    <span>Grado</span>
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link collapsed"  href="{{ url('/cursos') }}" >
+    <!-- <i class="fas fa-fw fa-wrench"></i> -->
+    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+    <span>Curso</span>
+  </a>
+</li>
 
 
     <!-- Divider -->

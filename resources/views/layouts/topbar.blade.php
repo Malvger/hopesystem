@@ -42,11 +42,17 @@
                       @endif
                   @else
                       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="img-profile rounded-circle" src="{{asset(Auth::user()->url)}}">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                        {{-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60"> --}}
+                        
                       </a>
                       <!-- Dropdown - User Information -->
                       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('login-perfil').submit();">{{ __('Perfil') }}</a>
+                        
+                        <a class="dropdown-item" onclick="event.preventDefault(); document.getElementById('login-clave').submit();">{{ __('Cambio clave') }}</a>
+
                         <div class="dropdown-divider"></div>
   
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -55,6 +61,14 @@
   
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
+                        </form>
+                        <form id="login-perfil" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                                <input type="hide" value="{{ Auth::user()->id }}">
+                        </form>
+                        <form id="login-clave" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                                <input type="hide" value="{{ Auth::user()->id }}">
                         </form>
                       </div>
                   @endguest

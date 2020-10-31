@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('url')->default('assets/img/user.png');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -28,6 +29,7 @@ class CreateUsersTable extends Migration
      * Reverse the migrations.
      *
      * @return void
+     * 
      */
     public function down()
     {
