@@ -48,6 +48,9 @@ padding-bottom: 2px;
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
+              <!-- <tr>
+                <th>{{$estudiantes}}</th>
+              </tr> -->
               <tr>
                 <th>#</th>
                 <th>Nombre</th>

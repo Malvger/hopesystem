@@ -47,7 +47,9 @@ class EstudianteController extends Controller
        // $datos['estudiantes']=estudiante::all();
        $datos['estudiantes'] = estudiante::join("grados", "grados.id", "=", "estudiantes.grado")
        ->join("ciclos", "ciclos.id", "=", "grados.ciclo")
-       ->select("*")
+       ->select("estudiantes.id","estudiantes.ApellidoPaterno","estudiantes.ApellidoMaterno","estudiantes.PrimerNombre","estudiantes.SegundoNombre",
+                 "estudiantes.CUI","estudiantes.Sexo","estudiantes.Edad","ciclos.ciclo", "grados.grado"
+       )
        ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
        ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
        ->orderBy('estudiantes.PrimerNombre', 'ASC')
