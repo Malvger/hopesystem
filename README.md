@@ -29,3 +29,20 @@ otro comandos
 git fetch
 git rebase origin/master
 git push
+
+# Laravel
+
+
+php artisan serve
+
+crear modelo um modelo
+crea modelo, controloador y recursos
+
+php artisan make:model modeloX -mcr
+
+php artisan migrate
+
+reset and migrate 
+
+php artisan migrate:reset
+php artisan migrate 

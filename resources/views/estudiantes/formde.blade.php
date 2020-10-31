@@ -1,19 +1,34 @@
 {{-- {{$Modo =='crear' ? 'Agregar':'modificar'}} --}}
 <br>
+
 <table class="table table-bordered" width="100%" cellspacing="0">
     <tbody>
+        <tr class="bg-secondary text-white">
+            <td colspan="4">{{ __('Nivel ') }}</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+            
+            <select id="Area" class="form-control" name="Area">  
+                    <option value="0" {{isset($estudiante->Area)?$estudiante->Area=='0'?'selected':'':'' }} > Preprimaria y Primero </option>  
+                    <option value="1" {{isset($estudiante->Area)?$estudiante->Area=='1'?'selected':'':'' }}> Medio, Ciclo Diversificado</option>  
+                </select>
+            
+            </td> 
+        </tr>
+
         <tr class="bg-secondary text-white">
             <td>{{ __('Primer Nombre') }}</td>
             <td>{{ __('Segundo Nombre') }}</td>
             <td>{{ __('Apellido Paterno') }}</td>
-            <td>{{ __('Apellido Paterno') }}</td>
+            <td>{{ __('Apellido Materno') }}</td>
         </tr>
         <tr>
-            <td><input id="PrimerNombre" type="text" class="form-control" name="PrimerNombre" 
+            <td><input id="PrimerNombre" type="text" class="form-control" name="PrimerNombre" required
                 value="{{isset($estudiante->PrimerNombre)?$estudiante->PrimerNombre:'' }}"></td>
             <td><input id="SegundoNombre" type="text" class="form-control" name="SegundoNombre" 
                 value="{{isset($estudiante->SegundoNombre)?$estudiante->SegundoNombre:'' }}"></td>
-            <td><input id="ApellidoPaterno" type="text" class="form-control" name="ApellidoPaterno" 
+            <td><input id="ApellidoPaterno" type="text" class="form-control" name="ApellidoPaterno"  required
                 value="{{isset($estudiante->ApellidoPaterno)?$estudiante->ApellidoPaterno:'' }}"></td>
             <td><input id="ApellidoMaterno" type="text" class="form-control" name="ApellidoMaterno" 
                 value="{{isset($estudiante->ApellidoMaterno)?$estudiante->ApellidoMaterno:'' }}"></td>
@@ -25,11 +40,11 @@
             <td>{{ __('Comunidad Étnica') }}</td>
         </tr>
         <tr>
-            <td><input id="Sexo" type="text" class="form-control" name="Sexo" 
+            <td><input id="Sexo" type="text" class="form-control" name="Sexo"  required
                 value="{{isset($estudiante->Sexo)?$estudiante->Sexo:'' }}"></td>
-            <td><input id="Edad" type="text" class="form-control" name="Edad" 
+            <td><input id="Edad" type="text" class="form-control" name="Edad"  required
                 value="{{isset($estudiante->Edad)?$estudiante->Edad:'' }}"></td>
-            <td><input id="CUI" type="text" class="form-control" name="CUI" 
+            <td><input id="CUI" type="text" class="form-control" name="CUI" required
                 value="{{isset($estudiante->CUI)?$estudiante->CUI:'' }}"></td>
             <td><input id="ComunidadEtnica" type="text" class="form-control" name="ComunidadEtnica" 
                 value="{{isset($estudiante->ComunidadEtnica)?$estudiante->ComunidadEtnica:'' }}"></td>
