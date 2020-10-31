@@ -93,7 +93,11 @@ padding-bottom: 2px;
                 @endforeach
             </tbody>
           </table>
-                <a href="{{route('reporteEstudiantes')}}">Imprimir pdf</a>
+          <div class="col clearfix">
+            <span class="d-flex justify-content-center">
+              <a class="btn btn-success" href="{{route('reporteEstudiantes')}}">Imprimir pdf</a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
