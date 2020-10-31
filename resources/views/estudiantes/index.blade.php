@@ -91,9 +91,9 @@ padding-bottom: 2px;
                 </tr>
 
                 @endforeach
-                  
             </tbody>
           </table>
+                <a href="{{route('reporteEstudiantes')}}">Imprimir pdf</a>
         </div>
       </div>
     </div>

@@ -11,6 +11,8 @@ use App\Grado;
 use App\Ciclo;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use PDF;
 
 
 
@@ -282,6 +284,13 @@ class EstudianteController extends Controller
         return redirect('/estudiantes');
 
     }
+    
+    public function getPdf(){
 
+        $datos['estudiantes']=estudiante::All();
+        
+        $pdf = \PDF::loadView('estudiantes.pdf', compact('datos'));
+        return $pdf->download('informeestudiantes.pdf');
+    }
 }
 
