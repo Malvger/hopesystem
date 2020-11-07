@@ -277,9 +277,17 @@ class EstudianteController extends Controller
 
         $post->delete();
 
-        return redirect('/estudiantes');
+        return redirect('/estudiantes')->with('eliminar','ok');
 
     }
 
+<<<<<<< Updated upstream
+=======
+       // $datos['estudiantes']=estudiante::All();
+        
+       // $pdf = /PDF::loadView('estudiantes.pdf', compact('datos'));
+        //return $pdf->download('informeestudiantes.pdf');
+    }
+>>>>>>> Stashed changes
 }
 
