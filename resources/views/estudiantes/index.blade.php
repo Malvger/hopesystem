@@ -48,6 +48,9 @@ padding-bottom: 2px;
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
+              <!-- <tr>
+                <th>{{$estudiantes}}</th>
+              </tr> -->
               <tr>
                 <th>#</th>
                 <th>Nombre</th>
@@ -88,9 +91,13 @@ padding-bottom: 2px;
                 </tr>
 
                 @endforeach
-                  
             </tbody>
           </table>
+          <div class="col clearfix">
+            <span class="d-flex justify-content-center">
+              <a class="btn btn-success" href="{{route('reporteEstudiantes')}}">Imprimir pdf</a>
+            </span>
+          </div>
         </div>
       </div>
     </div>

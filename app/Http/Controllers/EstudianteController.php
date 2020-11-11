@@ -11,6 +11,8 @@ use App\Grado;
 use App\Ciclo;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use PDF;
 
 
 
@@ -47,7 +49,9 @@ class EstudianteController extends Controller
        // $datos['estudiantes']=estudiante::all();
        $datos['estudiantes'] = estudiante::join("grados", "grados.id", "=", "estudiantes.grado")
        ->join("ciclos", "ciclos.id", "=", "grados.ciclo")
-       ->select("*")
+       ->select("estudiantes.id","estudiantes.ApellidoPaterno","estudiantes.ApellidoMaterno","estudiantes.PrimerNombre","estudiantes.SegundoNombre",
+                 "estudiantes.CUI","estudiantes.Sexo","estudiantes.Edad","ciclos.ciclo", "grados.grado"
+       )
        ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
        ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
        ->orderBy('estudiantes.PrimerNombre', 'ASC')
@@ -280,14 +284,11 @@ class EstudianteController extends Controller
         return redirect('/estudiantes')->with('eliminar','ok');
 
     }
-
-<<<<<<< Updated upstream
-=======
-       // $datos['estudiantes']=estudiante::All();
-        
-       // $pdf = /PDF::loadView('estudiantes.pdf', compact('datos'));
-        //return $pdf->download('informeestudiantes.pdf');
+    
+    public function getPdf(){
+        $datos['estudiantes']=estudiante::All();  
+        $pdf = \PDF::loadView('estudiantes.pdf', compact('datos'));
+        return $pdf->download('informeestudiantes.pdf');
     }
->>>>>>> Stashed changes
 }
 
