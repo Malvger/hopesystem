@@ -46,13 +46,3 @@ reset and migrate
 
 php artisan migrate:reset
 php artisan migrate 
-
-# pdf install
-
-php.ini 
-    ->extension=fileinfo
-
-comando
-
-composer require barryvdh/laravel-dompdf
-
