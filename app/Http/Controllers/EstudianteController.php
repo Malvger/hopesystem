@@ -121,7 +121,7 @@ class EstudianteController extends Controller
         $estudiante = new estudiante(request()->except('_token'));
         $estudiante->save();
 
-        Flash::success( "Se ha Registrado de forma exitosa ");
+        // Flash::success( "Se ha Registrado de forma exitosa ");
         return redirect()->route('estudiantes.index');
 
     }
