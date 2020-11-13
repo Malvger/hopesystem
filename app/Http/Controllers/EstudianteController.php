@@ -306,22 +306,5 @@ class EstudianteController extends Controller
         // $pdf = \PDF::loadView('estudiantes.index',$datos);
         // return $pdf->download('informeestudiantes.pdf');
     }
-
-    public function imprimirInformePdf($id)
-    {
-        $estudiante=estudiante::findOrFail($id);
-        $grados = Ciclo::join("grados", "ciclos.id", "=", "grados.ciclo")
-        ->select("grados.id",'grados.grado','ciclos.ciclo')
-        ->orderBy('ciclos.ciclo', 'ASC')
-        ->orderBy('grados.grado', 'ASC')
-        ->get();
-        
-        $filename = $estudiante->PrimerNombre. ' ' .$estudiante->SegundoNombre. ' ' .$estudiante->ApellidoPaterno. ' ' .$estudiante->ApellidoMaterno.'.pdf';
-        $pdf = \PDF::loadView('estudiantes.pdf_inscripcion', compact('estudiante','grados'));
-        return $pdf->download($filename);
-
-        //return view('estudiantes.pdf_inscripcion', compact('estudiante','grados'));
-
-    }
 }
 
