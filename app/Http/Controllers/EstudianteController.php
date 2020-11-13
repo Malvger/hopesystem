@@ -91,8 +91,12 @@ class EstudianteController extends Controller
         ->orderBy('ciclos.ciclo', 'ASC')
         ->orderBy('grados.grado', 'ASC')
         ->get();
+    
 
         return view('estudiantes.create', compact('grados'));
+
+        // return view('estudiantes.edit', compact('estudiante','grados'));
+
 
     }
 
