@@ -23,10 +23,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/estudiantes', 'EstudianteController@index');
 // Route::get('/estudiantes/create', 'EstudianteController@create');
+//Informes
+Route::name('reporteEstudiantes')->get('/imprimir-listado-estudiantes', 'EstudianteController@getPdf');
+Route::name('imprimir-informe-estudiante')->get('/imprimir-informe-estudiante/{id}', 'EstudianteController@imprimirInformePdf');
+
 Route::resource('estudiantes', 'EstudianteController');
 Route::patch('estudiantes/{id}/edit', 'EstudianteController@update')->name('estudiantes.update');
-
-Route::name('reporteEstudiantes')->get('/imprimir-listado-estudiantes', 'EstudianteController@getPdf');
 
 Route::resource('estudiantes1', 'Estudiantes1Controller');
 Route::patch('estudiantes1/{id}/edit', 'Estudiantes1Controller@update')->name('estudiantes1.update');
