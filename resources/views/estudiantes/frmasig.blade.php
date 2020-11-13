@@ -31,7 +31,7 @@
     </div>
     <div class="col clearfix">
         <span class="float-right">
-            <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+            <button type="submit" class="btn btn-primary" >{{ __('Guardar') }}</button>
         </span>
     </div>
 </div>

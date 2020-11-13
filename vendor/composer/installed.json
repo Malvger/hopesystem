@@ -747,7 +747,8 @@
             "data",
             "faker",
             "fixtures"
-        ]
+        ],
+        "abandoned": true
     },
     {
         "name": "hamcrest/hamcrest-php",

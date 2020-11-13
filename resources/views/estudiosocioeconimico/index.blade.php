@@ -61,7 +61,7 @@ padding-bottom: 2px;
                     <td>{{$estudio->Apellidos}}, {{$estudio->Nombres}}</td>
                     <td><a href="{{url('/estudiosocioeconimico/'.$estudio->id.'/edit')}}"><i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
                         <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
-                        <form method="POST" action="{{ url('/estudiosocioeconimico/'.$estudio->id) }}"  class="d-inline">
+                        <form method="POST" action="{{ url('/estudiosocioeconimico/'.$estudio->id) }}"  class="d-inline form-eliminar">
                           @csrf
                           @method('DELETE')
                           <button class='delete' type="submit" > <i class="fa fa-trash-alt  ml-3"   placeholder="Eliminar"></i> </button>
@@ -90,4 +90,42 @@ $(document).ready(function(){
   });
 });
 </script>
+@endsection
+
+ 
+
+@section('js')
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  @if (session('eliminar') == 'ok')
+    <script>
+      Swal.fire(
+        '¡Eliminado con éxito!',
+        'Se ha eliminado el registro',
+        'success'
+      )
+    </script>
+      
+  @endif
+
+  <script>
+    
+    $('.form-eliminar').submit(function(event){
+        event.preventDefault();
+        Swal.fire({
+        title: '¿Está seguro de eliminar?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'Cancelar'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            this.submit();
+          }
+        })
+    });
+  </script>
 @endsection
