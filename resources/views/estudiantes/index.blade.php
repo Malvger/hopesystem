@@ -79,12 +79,11 @@ padding-bottom: 2px;
                     <td>{{$estudiante->Sexo}}</td>
                     <td>{{$estudiante->Edad}}</td>
                     <td><a href="{{url('/estudiantes/'.$estudiante->id.'/edit')}}" > <i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
-                        <a  href="#"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
+                        <a  href="{{route('imprimir-informe-estudiante', $estudiante->id)}}"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
                         <form method="POST" action="{{ url('/estudiantes/'.$estudiante->id) }}"  class="d-inline form-eliminar">
                           @csrf
                           @method('DELETE')
                           <button class='delete' type="submit" > <i class="fa fa-trash-alt  ml-3"   placeholder="Eliminar"></i> </button>
-                          
                         </form>
  
                     </td>
@@ -95,7 +94,7 @@ padding-bottom: 2px;
           </table>
           <div class="col clearfix">
             <span class="d-flex justify-content-center">
-              <a class="btn btn-success" href="{{route('reporteEstudiantes')}}">Imprimir pdf</a>
+              <a class="btn btn-success" href="{{route('reporteEstudiantes')}}">Imprimir Listado</a>
             </span>
           </div>
         </div>
