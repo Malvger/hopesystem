@@ -155,10 +155,11 @@
     </tbody>
 </table>
 <br>
-
+<br>
 <div style="page-break-before: always;"></div>
-
+<div>
 <h5>DATOS ACADÉMICOS</h5>
+</div>
 <table class="table table-bordered" width="100%" cellspacing="0">
     <tbody>
         <tr class="bg-secondary text-white">
@@ -312,7 +313,10 @@
         </tr>
     </tbody>
 </table>
+<div style="page-break-before: always;"></div>
+<div>
 <h5>DINÁMICA FAMILIAR</h5>
+</div>
 <div class="table-responsive">
 <table class="table table-bordered" width="100%" cellspacing="0">
     <thead>
