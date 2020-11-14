@@ -24,11 +24,11 @@
             <td>{{ __('Apellido Materno') }}</td>
         </tr>
         <tr>
-            <td><input id="PrimerNombre" type="text" class="form-control" name="PrimerNombre" required
+            <td><input id="PrimerNombre" type="text" class="form-control required" name="PrimerNombre" maxlength="16"
                 value="{{isset($estudiante->PrimerNombre)?$estudiante->PrimerNombre:'' }}"></td>
             <td><input id="SegundoNombre" type="text" class="form-control" name="SegundoNombre" 
                 value="{{isset($estudiante->SegundoNombre)?$estudiante->SegundoNombre:'' }}"></td>
-            <td><input id="ApellidoPaterno" type="text" class="form-control" name="ApellidoPaterno"  required
+            <td><input id="ApellidoPaterno" type="text" class="form-control" name="ApellidoPaterno"  
                 value="{{isset($estudiante->ApellidoPaterno)?$estudiante->ApellidoPaterno:'' }}"></td>
             <td><input id="ApellidoMaterno" type="text" class="form-control" name="ApellidoMaterno" 
                 value="{{isset($estudiante->ApellidoMaterno)?$estudiante->ApellidoMaterno:'' }}"></td>
@@ -40,11 +40,11 @@
             <td>{{ __('Comunidad Étnica') }}</td>
         </tr>
         <tr>
-            <td><input id="Sexo" type="text" class="form-control" name="Sexo"  required
+            <td><input id="Sexo" type="text" class="form-control" name="Sexo"  
                 value="{{isset($estudiante->Sexo)?$estudiante->Sexo:'' }}"></td>
-            <td><input id="Edad" type="text" class="form-control" name="Edad"  required
+            <td><input id="Edad" type="text" class="form-control" name="Edad"  
                 value="{{isset($estudiante->Edad)?$estudiante->Edad:'' }}"></td>
-            <td><input id="CUI" type="text" class="form-control" name="CUI" required
+            <td><input id="CUI" type="text" class="form-control" name="CUI" 
                 value="{{isset($estudiante->CUI)?$estudiante->CUI:'' }}"></td>
             <td><input id="ComunidadEtnica" type="text" class="form-control" name="ComunidadEtnica" 
                 value="{{isset($estudiante->ComunidadEtnica)?$estudiante->ComunidadEtnica:'' }}"></td>

@@ -12,6 +12,8 @@ use App\Ciclo;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\EstudienteRequest;
+
 use PDF;
 
 
@@ -89,8 +91,12 @@ class EstudianteController extends Controller
         ->orderBy('ciclos.ciclo', 'ASC')
         ->orderBy('grados.grado', 'ASC')
         ->get();
+    
 
         return view('estudiantes.create', compact('grados'));
+
+        // return view('estudiantes.edit', compact('estudiante','grados'));
+
 
     }
 
@@ -108,30 +114,15 @@ class EstudianteController extends Controller
 
      */
 
-    public function store(Request $request)
+    public function store(EstudienteRequest $request)
 
     {
 
-        //
+        $estudiante = new estudiante(request()->except('_token'));
+        $estudiante->save();
 
-        //$datosEstudiante=Request()->all();
-
-        $datosEstudiante=request()->except('_token');
-
-        estudiante::insert($datosEstudiante);
-
-        //return response()->json($datosEstudiante);
-
-        $datos['estudiantes'] = estudiante::join("grados", "grados.id", "=", "estudiantes.grado")
-        ->join("ciclos", "ciclos.id", "=", "grados.ciclo")
-        ->select("*")
-        ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
-        ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
-        ->orderBy('estudiantes.PrimerNombre', 'ASC')
-        ->orderBy('estudiantes.SegundoNombre', 'ASC')
-        ->get();
- 
-         return view('estudiantes.index',$datos);
+        // Flash::success( "Se ha Registrado de forma exitosa ");
+        return redirect()->route('estudiantes.index');
 
     }
 
@@ -281,16 +272,39 @@ class EstudianteController extends Controller
 
         $post->delete();
 
-        return redirect('/estudiantes');
+        return redirect('/estudiantes')->with('eliminar','ok'); 
 
     }
     
     public function getPdf(){
 
-        $datos['estudiantes']=estudiante::All();
-        
-        $pdf = \PDF::loadView('estudiantes.pdf', compact('datos'));
-        return $pdf->download('informeestudiantes.pdf');
+        // $pdf = App::make('dompdf.wrapper');
+        // $pdf->loadHTML('<h1>Test</h1>');
+        // return $pdf->download('invoice.pdf');
+         $datos['estudiantes']=estudiante::All();  
+        //  $pdf = app('dompdf.wrapper');
+         $pdf = \PDF::loadView('estudiantes.pdf', compact('datos'));
+         //return $pdf->setPaper('a4')->stream();
+        //  return $pdf.'';
+         return $pdf->download('informeestudiantes.pdf');
+        //return $pdf->download();
+
+        // $pdf = \PDF::loadHTML('<h1>Test</h1>');
+        // return $pdf->stream();
+        // return $pdf->download('informeestudiantes.pdf');
+
+        // $datos['estudiantes'] = estudiante::join("grados", "grados.id", "=", "estudiantes.grado")
+        // ->join("ciclos", "ciclos.id", "=", "grados.ciclo")
+        // ->select("estudiantes.id","estudiantes.ApellidoPaterno","estudiantes.ApellidoMaterno","estudiantes.PrimerNombre","estudiantes.SegundoNombre",
+        //           "estudiantes.CUI","estudiantes.Sexo","estudiantes.Edad","ciclos.ciclo", "grados.grado"
+        // )
+        // ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
+        // ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
+        // ->orderBy('estudiantes.PrimerNombre', 'ASC')
+        // ->orderBy('estudiantes.SegundoNombre', 'ASC')
+        // ->get();
+        // $pdf = \PDF::loadView('estudiantes.index',$datos);
+        // return $pdf->download('informeestudiantes.pdf');
     }
 
     public function imprimirInformePdf($id)

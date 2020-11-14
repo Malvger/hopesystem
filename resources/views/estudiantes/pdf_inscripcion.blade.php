@@ -5,24 +5,6 @@
         <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />-->
         <link href="{{ asset('css/gus.css') }}" rel="stylesheet"/>
     </head>
-    <!--
-    <head>
-        <meta charset="UTF-8">
-        <title>Test No.</title>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
-        <style type="text/css">
-            html {
-                margin: 0;
-            }
-            body {
-                background-color: #FFFFFF;
-                font-size: 10px;
-                margin: 36pt;
-            }
-        </style>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
-    </head>
-    -->
     <body>
     <div class="container">
         <div class="row justify-content-center">

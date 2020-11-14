@@ -62,9 +62,10 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                         </form>
-                        <form id="login-perfil" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                                <input type="hide" value="{{ Auth::user()->id }}">
+                        <form id="login-perfil" action="{{ url('perfil') }}" method="POST" style="display: none;">
+                              {{ csrf_field() }}
+                              {{method_field('PATCH')}}
+                                <input type="hide" name="id" value="{{ Auth::user()->id }}">
                         </form>
                         <form id="login-clave" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
