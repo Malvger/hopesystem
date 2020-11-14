@@ -1,25 +1,23 @@
-+<!DOCTYPE html>
-<html lang="en">
-    <!--
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Test No.</title>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
-        <style type="text/css">
-            html {
-                margin: 0;
-            }
-            body {
-                background-color: #FFFFFF;
-                font-size: 10px;
-                margin: 36pt;
-            }
-        </style>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
+        <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />-->
+        <link href="{{ asset('css/gus.css') }}" rel="stylesheet"/>
     </head>
-    -->
     <body>
     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-lg-2">
+            
+            </div>
+            <div class="col-md-auto">
+            
+            </div>
+            <div class="col col-lg-2">
+            
+            </div>
+        </div>
         <div class="row justify-content-center">
             <div class="container-fluid">
                 <div class="card">
