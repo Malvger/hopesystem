@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />-->
+        <link href="{{ asset('css/gus.css') }}" rel="stylesheet"/>
+    </head>
     <!--
     <head>
         <meta charset="UTF-8">
@@ -20,6 +25,17 @@
     -->
     <body>
     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-lg-2">
+            
+            </div>
+            <div class="col-md-auto">
+            
+            </div>
+            <div class="col col-lg-2">
+            
+            </div>
+        </div>
         <div class="row justify-content-center">
             <div class="container-fluid">
                 <div class="card">
