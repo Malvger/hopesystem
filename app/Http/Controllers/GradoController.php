@@ -133,8 +133,8 @@ class GradoController extends Controller
         // Grado::destroy($id);
         $post = Grado::find($id);
         $post->delete();
-        return redirect('/grados');
-
+        return redirect('/grados')->with('eliminar','ok'); 
+ 
 
     }
 }

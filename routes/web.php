@@ -21,14 +21,20 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+ 
+
+Route::resource('user', 'UserController');
+// Route::get('/perfil', 'UserController@update')->name('user.update');
+Route::patch('/perfil', 'UserController@update')->name('user.update');
+
 // Route::get('/estudiantes', 'EstudianteController@index');
 // Route::get('/estudiantes/create', 'EstudianteController@create');
+Route::resource('estudiantes', 'EstudianteController');
+Route::patch('estudiantes/{id}/edit', 'EstudianteController@update')->name('estudiantes.update');
+
 //Informes
 Route::name('reporteEstudiantes')->get('/imprimir-listado-estudiantes', 'EstudianteController@getPdf');
 Route::name('imprimir-informe-estudiante')->get('/imprimir-informe-estudiante/{id}', 'EstudianteController@imprimirInformePdf');
-
-Route::resource('estudiantes', 'EstudianteController');
-Route::patch('estudiantes/{id}/edit', 'EstudianteController@update')->name('estudiantes.update');
 
 Route::resource('estudiantes1', 'Estudiantes1Controller');
 Route::patch('estudiantes1/{id}/edit', 'Estudiantes1Controller@update')->name('estudiantes1.update');
@@ -57,3 +63,4 @@ Route::patch('notas/{id}/edit', 'NotasController@update')->name('notas.update');
 Route::POST('notas/create', 'NotasController@create')->name('notas.create'); 
 
 Route::resource('reportes', 'ReportesController');
+ 

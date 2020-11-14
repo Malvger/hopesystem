@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EstudioSocioeconimico;
 use Illuminate\Http\Request;
+use App\Http\Requests\EstudioSocioEconimicoRequest;
 
 class EstudioSocioeconimicoController extends Controller
 {
@@ -41,7 +42,7 @@ class EstudioSocioeconimicoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EstudioSocioEconimicoRequest $request)
     {
         //
               //$datosEstudiante=Request()->all();
@@ -152,6 +153,6 @@ class EstudioSocioeconimicoController extends Controller
         //
         $post = EstudioSocioeconimico::find($id);
         $post->delete();
-        return redirect('/estudiosocioeconimico');
+        return redirect('/estudiosocioeconimico')->with('eliminar','ok');;
     }
 }

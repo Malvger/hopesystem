@@ -82,6 +82,8 @@ padding-bottom: 2px;
                         <a href="{{route('imprimir-informe-estudiante', $estudiante->id)}}" target="_blank"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
                         
                         <form method="POST" action="{{ url('/estudiantes/'.$estudiante->id) }}"  class="d-inline">
+                        <a  href="{{route('imprimir-informe-estudiante', $estudiante->id)}}"> <i class="fa fa-print ml-3"  placeholder="Imprimir"></i> </a>
+                        <form method="POST" action="{{ url('/estudiantes/'.$estudiante->id) }}"  class="d-inline form-eliminar">
                           @csrf
                           @method('DELETE')
                           <button class='delete' type="submit" > <i class="fa fa-trash-alt  ml-3"   placeholder="Eliminar"></i> </button>
@@ -96,7 +98,7 @@ padding-bottom: 2px;
           </table>
           <div class="col clearfix">
             <span class="d-flex justify-content-center">
-              <a class="btn btn-success" href="{{route('reporteEstudiantes')}}">Imprimir Listado</a>
+            <a class="btn btn-success" href="{{route('reporteEstudiantes')}}">Imprimir Listado</a>
             </span>
           </div>
         </div>
@@ -116,4 +118,41 @@ $(document).ready(function(){
 });
 </script>
 
+@endsection
+
+
+@section('js')
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  @if (session('eliminar') == 'ok')
+    <script>
+      Swal.fire(
+        '¡Eliminado con éxito!',
+        'Se ha eliminado el estudiante',
+        'success'
+      )
+    </script>
+      
+  @endif
+
+  <script>
+    
+    $('.form-eliminar').submit(function(event){
+        event.preventDefault();
+        Swal.fire({
+        title: '¿Está seguro de eliminar?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'Cancelar'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            this.submit();
+          }
+        })
+    });
+  </script>
 @endsection
