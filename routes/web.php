@@ -21,6 +21,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+ 
+
+Route::resource('user', 'UserController');
+// Route::get('/perfil', 'UserController@update')->name('user.update');
+Route::patch('/perfil', 'UserController@update')->name('user.update');
+
 // Route::get('/estudiantes', 'EstudianteController@index');
 // Route::get('/estudiantes/create', 'EstudianteController@create');
 Route::resource('estudiantes', 'EstudianteController');
