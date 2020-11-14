@@ -81,8 +81,6 @@ padding-bottom: 2px;
                     <td><a href="{{url('/estudiantes/'.$estudiante->id.'/edit')}}" > <i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
                         <a href="{{route('imprimir-informe-estudiante', $estudiante->id)}}" target="_blank"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
                         
-                        <form method="POST" action="{{ url('/estudiantes/'.$estudiante->id) }}"  class="d-inline">
-                        <a  href="{{route('imprimir-informe-estudiante', $estudiante->id)}}"> <i class="fa fa-print ml-3"  placeholder="Imprimir"></i> </a>
                         <form method="POST" action="{{ url('/estudiantes/'.$estudiante->id) }}"  class="d-inline form-eliminar">
                           @csrf
                           @method('DELETE')
