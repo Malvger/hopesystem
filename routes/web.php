@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CursoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,4 +65,10 @@ Route::patch('notas/{id}/edit', 'NotasController@update')->name('notas.update');
 Route::POST('notas/create', 'NotasController@create')->name('notas.create'); 
 
 Route::resource('reportes', 'ReportesController');
- 
+
+
+Route::name('reportenota')->get('/imprimir-informe-notas', 'CursoController@reporteNotas');
+
+
+Route::get('cursos/{id}/reportes', 'CursoController@reporteNotas');
+
