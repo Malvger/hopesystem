@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\AoGrado;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\estudiante;
-use App\Grado;
-use App\Ciclo;
-use App\User;
-
-
-class UserController extends Controller
+class AoGradoController extends Controller
 {
+    
     public function __construct()
 
     {
@@ -20,10 +16,23 @@ class UserController extends Controller
         $this->middleware('auth');
 
     }
-    //
-    public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index($id)
     {
         //
+        $aogrado = AoGrado::join("grados", "ao_grados.Grado", "=", "grados.id")
+        ->select('grados.grado','ao_grados.Ano')
+        ->where('Estudiante','=', $id)
+        ->get();
+        // $datos['id'] = $id;
+
+        return view('aogrado.index', compact('aogrado'));
+        
+        
     }
 
     /**
@@ -50,10 +59,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\AoGrado  $aoGrado
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(AoGrado $aoGrado)
     {
         //
     }
@@ -61,62 +70,35 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\AoGrado  $aoGrado
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
+        return view('aogrado.index', compact('id'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\AoGrado  $aoGrado
      * @return \Illuminate\Http\Response
      */
-    // public function update(Request $request, $id)
-    // {
-    //     //
-    // }
-    public function update(Request $request)
+    public function update(Request $request,  $id)
     {
         //
-
-                $data=request()->except('_token','_method');
-
-                $id=$data['id'];
-                if(count($data)>1){
-
-                    if (isset($data['url'])){
-                        $file = $request->file('url');
-                        $nombre =$data['id'] . " - " . $file->getClientOriginalName();
-                        $file->move("assets/user",$nombre);
-                        
-                        $data['url']="assets/user/".$nombre;
-                    }else{
-                        unset($data['url']);
-                    }
-
-
-                    User::where('id','=', $id)->update($data);
-                }
-
-                $data=User::findOrFail($id);
-        
-        
-                return view('auth.perfil', compact('data'));
-
+        //return view('aogrado.index', $id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\AoGrado  $aoGrado
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(AoGrado $aoGrado)
     {
         //
     }

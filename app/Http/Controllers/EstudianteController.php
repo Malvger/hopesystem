@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 use App\estudiante;
 use App\Grado;
 use App\Ciclo;
+use App\AoGrado;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -174,9 +175,12 @@ class EstudianteController extends Controller
         ->orderBy('ciclos.ciclo', 'ASC')
         ->orderBy('grados.grado', 'ASC')
         ->get();
+        $aogrado = AoGrado::join("grados", "ao_grados.Grado", "=", "grados.id")
+        ->select('grados.grado','ao_grados.Ano')
+        ->where('Estudiante','=', 2)
+        ->get();
 
-
-        return view('estudiantes.edit', compact('estudiante','grados'));
+        return view('estudiantes.edit', compact('estudiante','grados','aogrado'));
 
     }
 

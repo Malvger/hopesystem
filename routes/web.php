@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
  
 
 Route::resource('user', 'UserController');
+
 // Route::get('/perfil', 'UserController@update')->name('user.update');
 Route::patch('/perfil', 'UserController@update')->name('user.update');
 
@@ -61,6 +62,11 @@ Route::delete('grados/{id}', 'GradoController@destroy')->name('grados.destroy');
 Route::resource('notas', 'NotasController');
 Route::patch('notas/{id}/edit', 'NotasController@update')->name('notas.update'); 
 Route::POST('notas/create', 'NotasController@create')->name('notas.create'); 
+
+Route::get('aogrado/{id}', 'AoGradoController@index')->name('aogrado.index');
+
+// Route::resource('aogrado', 'AoGradoController');
+// Route::patch('aogrado/{id}/edit', 'AoGradoController@update')->name('aogrado.update'); 
 
 Route::resource('reportes', 'ReportesController');
  

@@ -21,7 +21,6 @@
 </table>
 
 
-
 <!--Gustavo's changing tabs code-->
 <div class="row">
     <div class="col clearfix">

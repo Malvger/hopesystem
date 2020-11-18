@@ -412,6 +412,7 @@ class ComposerStaticInitComposerPhar1505141966
     );
 
     public static $classMap = array (
+        'App\\AoGrado' => __DIR__ . '/../..' . '/app/AoGrado.php',
         'App\\Ciclo' => __DIR__ . '/../..' . '/app/Ciclo.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Estudiantes1' => __DIR__ . '/../..' . '/app/Estudiantes1.php',
@@ -425,18 +426,17 @@ class ComposerStaticInitComposerPhar1505141966
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\CicloController' => __DIR__ . '/../..' . '/app/Http/Controllers/CicloController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-
-        'App\\Http\\Controllers\\EstudianteController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstudianteController.php',
-
         'App\\Http\\Controllers\\CursoController' => __DIR__ . '/../..' . '/app/Http/Controllers/CursoController.php',
         'App\\Http\\Controllers\\EstudianteController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstudianteController.php',
         'App\\Http\\Controllers\\Estudiantes1Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Estudiantes1Controller.php',
         'App\\Http\\Controllers\\EstudioSocioeconimicoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstudioSocioeconimicoController.php',
         'App\\Http\\Controllers\\GradoController' => __DIR__ . '/../..' . '/app/Http/Controllers/GradoController.php',
-      
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\NotasController' => __DIR__ . '/../..' . '/app/Http/Controllers/NotasController.php',
+        'App\\Http\\Controllers\\ReportesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReportesController.php',
         'App\\Http\\Controllers\\SaludPsicologicaController' => __DIR__ . '/../..' . '/app/Http/Controllers/SaludPsicologicaController.php',
         'App\\Http\\Controllers\\SituacionViviendaController' => __DIR__ . '/../..' . '/app/Http/Controllers/SituacionViviendaController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -445,24 +445,26 @@ class ComposerStaticInitComposerPhar1505141966
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\CursoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CursoRequest.php',
+        'App\\Http\\Requests\\EstudienteRequest' => __DIR__ . '/../..' . '/app/Http/Requests/EstudienteRequest.php',
+        'App\\Http\\Requests\\EstudioSocioEconimicoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/EstudioSocioEconimicoRequest.php',
+        'App\\Http\\Requests\\GradoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/GradoRequest.php',
         'App\\Mail\\NewUserNotification' => __DIR__ . '/../..' . '/app/Mail/NewUserNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Reportes' => __DIR__ . '/../..' . '/app/Reportes.php',
         'App\\SaludPsicologica' => __DIR__ . '/../..' . '/app/SaludPsicologica.php',
         'App\\SituacionVivienda' => __DIR__ . '/../..' . '/app/SituacionVivienda.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\curso' => __DIR__ . '/../..' . '/app/curso.php',
         'App\\estudiante' => __DIR__ . '/../..' . '/app/estudiante.php',
-
+        'App\\notas' => __DIR__ . '/../..' . '/app/notas.php',
         'Barryvdh\\DomPDF\\Facade' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade.php',
         'Barryvdh\\DomPDF\\PDF' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/PDF.php',
         'Barryvdh\\DomPDF\\ServiceProvider' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/ServiceProvider.php',
-
-        'App\\notas' => __DIR__ . '/../..' . '/app/notas.php',
-
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
