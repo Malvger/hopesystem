@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CursoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,4 +71,10 @@ Route::get('aogrado/{id}', 'AoGradoController@index')->name('aogrado.index');
 // Route::patch('aogrado/{id}/edit', 'AoGradoController@update')->name('aogrado.update'); 
 
 Route::resource('reportes', 'ReportesController');
- 
+
+
+Route::name('reportenota')->get('/imprimir-informe-notas', 'CursoController@reporteNotas');
+
+
+Route::get('cursos/{id}/reportes', 'CursoController@reporteNotas');
+
