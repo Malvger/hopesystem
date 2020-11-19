@@ -155,4 +155,14 @@ class EstudioSocioeconimicoController extends Controller
         $post->delete();
         return redirect('/estudiosocioeconimico')->with('eliminar','ok');;
     }
+
+    public function imprimirInformePdf($id)
+    {
+
+        //estudiosocioeconimico estudio_socioeconimicos
+        $estudioS=EstudioSocioeconimico::findOrFail($id);
+
+        return view('estudiosocioeconimico.pdf_esocioeconomico', compact('estudioS'));
+
+    }
 }

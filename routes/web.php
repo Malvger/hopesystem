@@ -35,6 +35,7 @@ Route::patch('estudiantes/{id}/edit', 'EstudianteController@update')->name('estu
 //Informes
 Route::name('reporteEstudiantes')->get('/imprimir-listado-estudiantes', 'EstudianteController@getPdf');
 Route::name('imprimir-informe-estudiante')->get('/imprimir-informe-estudiante/{id}', 'EstudianteController@imprimirInformePdf');
+Route::name('imprimir-informe-esocioeconomico')->get('/imprimir-informe-esocioeconomico/{id}', 'EstudioSocioeconimicoController@imprimirInformePdf');
 
 Route::resource('estudiantes1', 'Estudiantes1Controller');
 Route::patch('estudiantes1/{id}/edit', 'Estudiantes1Controller@update')->name('estudiantes1.update');
