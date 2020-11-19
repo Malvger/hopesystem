@@ -7,6 +7,7 @@ use App\Grado;
 use App\Ciclo;
 use App\notas;
 use App\estudiante;
+use App\AoGrado;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -114,7 +115,7 @@ class CursoController extends Controller
 
         return view('cursos.edit', compact('curso','grado','ciclo'));
     }
-    public function notas(Request $request, $id)
+    public function notas(Request $request, $id,$ano)
     {
 
         $req=request()->except('_token','_method');
@@ -142,23 +143,31 @@ class CursoController extends Controller
         ->orderBy('cursos.nombre', 'ASC')
         ->get();
         // $datos = $datos[0];
-        $grado = $datos[0]->grado_id;
+        // $grado = $datos[0]->grado_id;
 
-
-        $dat=estudiante::Join("grados", "grados.id", "=", "estudiantes.grado")
-        ->leftJoin("cursos", "cursos.grado", "=", "grados.id")
-        ->leftJoin("notas", [["notas.estudiante", "=", "estudiantes.id"],["notas.curso","=","cursos.id"]])
+        $dat= AoGrado::Join("cursos", "cursos.grado", "=", "ao_grados.Grado")
+        ->Join("estudiantes", "estudiantes.id", "=", "ao_grados.Estudiante")
+        ->leftJoin("notas", [
+                                ["notas.estudiante", "=", "estudiantes.id"]
+                                ,["notas.curso","=","cursos.id"]
+                                ,["notas.ano","=","ao_grados.Ano"]
+                            ])
         ->select('estudiantes.id as est_id','estudiantes.PrimerNombre','estudiantes.SegundoNombre','estudiantes.ApellidoPaterno','estudiantes.ApellidoMaterno','estudiantes.grado',
-        'notas.unidad1','notas.unidad2','notas.unidad3','notas.unidad4', 'notas.id as nota_id', 'notas.curso' )
-        ->where('grados.id','=', $grado)
+            'notas.unidad1','notas.unidad2','notas.unidad3','notas.unidad4', 'notas.id as nota_id', 'notas.curso' ,'ao_grados.Ano as ano')
+        ->where('ao_grados.Ano','=', $ano)
         ->where('cursos.id','=', $id)
         ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
         ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
         ->orderBy('estudiantes.PrimerNombre', 'ASC')
         ->orderBy('estudiantes.SegundoNombre', 'ASC')
         ->get();
-
-        return view('cursos.notas',compact('datos', 'dat','req'));
+        $anos= AoGrado::Join("cursos", "cursos.grado", "=", "ao_grados.Grado")
+        ->select('Ano')
+        ->where('cursos.id','=', $id)
+        ->groupBy('ao_grados.Ano')
+        ->get();
+        // dd($dat);
+        return view('cursos.notas',compact( 'dat','datos','ano','id','anos'));
         // return view('cursos.notas', compact('curso','grado','ciclo'));
     }
 
@@ -197,21 +206,7 @@ class CursoController extends Controller
         $post->delete();
         return redirect('/cursos')->with('eliminar','ok');
     }
-    public function reporteNotas(Request $request, $id){
-        $req=request()->except('_token','_method');
-
-        if (strcmp(json_encode($req),"[]")) {
-            if(is_null($req['id'])){
-                notas::insert($req);
-                $req="Insert". json_encode($req);
-            } else {
-                
-                notas::where('id','=', $req['id'])->update($req);
-                $req="update " . json_encode($req);
-            }
-        }else {
-            $req=json_encode($req);
-        } 
+    public function reporteNotas(Request $request, $id , $ano){
 
         //  
         $datos = curso::join("grados", "cursos.grado", "=", "grados.id")
@@ -226,12 +221,16 @@ class CursoController extends Controller
         $grado = $datos[0]->grado_id;
 
 
-        $dat=estudiante::Join("grados", "grados.id", "=", "estudiantes.grado")
-        ->leftJoin("cursos", "cursos.grado", "=", "grados.id")
-        ->leftJoin("notas", [["notas.estudiante", "=", "estudiantes.id"],["notas.curso","=","cursos.id"]])
+        $dat= AoGrado::Join("cursos", "cursos.grado", "=", "ao_grados.Grado")
+        ->Join("estudiantes", "estudiantes.id", "=", "ao_grados.Estudiante")
+        ->leftJoin("notas", [
+                                ["notas.estudiante", "=", "estudiantes.id"]
+                                ,["notas.curso","=","cursos.id"]
+                                ,["notas.ano","=","ao_grados.Ano"]
+                            ])
         ->select('estudiantes.id as est_id','estudiantes.PrimerNombre','estudiantes.SegundoNombre','estudiantes.ApellidoPaterno','estudiantes.ApellidoMaterno','estudiantes.grado',
-        'notas.unidad1','notas.unidad2','notas.unidad3','notas.unidad4', 'notas.id as nota_id', 'notas.curso' )
-        ->where('grados.id','=', $grado)
+            'notas.unidad1','notas.unidad2','notas.unidad3','notas.unidad4', 'notas.id as nota_id', 'notas.curso' ,'ao_grados.Ano as ano')
+        ->where('ao_grados.Ano','=', $ano)
         ->where('cursos.id','=', $id)
         ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
         ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
@@ -240,6 +239,6 @@ class CursoController extends Controller
         ->get();
 
         //return view('cursos.reporteNota',compact('datos', 'dat','req'));
-        return view('cursos.reporteNota',compact('datos', 'dat','req'));  
+        return view('cursos.reporteNota',compact('datos', 'dat', 'ano','id'));  
     }
 }

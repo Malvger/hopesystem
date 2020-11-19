@@ -27,12 +27,16 @@ padding-bottom: 2px;
     <div class="row justify-content-center">
         <div class="container-fluid">
             <div class="card">
-                <div class="card-header">{{ __('NOTAS') }}</div>
+                <div class="card-header">{{ __('NOTAS') }}
+                   
+                    @foreach ($anos as $d) 
+                        <!-- {{$loop->iteration}} -->
+                        <a class="ml-2" href="{{url('/cursos/'.$id .'/'. $d['Ano'] .'/notas')}}">({{$d['Ano']}}) </a>
+                    @endforeach
+                    <a class=' ml-2'  href="{{url('/cursos/'.$id.'/'.$ano.'/reportes')}}"  target="_blank"> <i class="fa fa-print ml-3"  placeholder="Imprimir"></i> </a> 
+                </div>
 
                 <div class="card-body">
-                    <!-- <p>{{$datos[0]}}</p> -->
-                    <!-- <p>{{$dat}}</p> -->
-                    <!-- <p>{{$req}}</p> -->
                     <br>
                     <table class="table table-bordered"  cellspacing="0">
                         <tbody>
@@ -69,6 +73,7 @@ padding-bottom: 2px;
                                             <input name="cgc" type="hidden" value=" {{$datos[0]->ciclo}} / {{$datos[0]->grado}} / {{$datos[0]->nombre}}">
                                             <input name="nombre" type="hidden" value="{{$nota->ApellidoPaterno}} {{$nota->ApellidoMaterno}}, {{$nota->PrimerNombre}} {{$nota->SegundoNombre}}">
                                             <input name="id" type="hidden" value="{{$nota->nota_id}}">
+                                            <input name="ano" type="hidden" value="{{$nota->ano}}">
                                             <input name="estudiante" type="hidden" value=" {{$nota->est_id}}">
                                             <input name="curso" type="hidden" value="{{$datos[0]->id}}">
                                             <input name="unidad1" type="hidden" value="{{isset($nota->unidad1)?$nota->unidad1:0}}">

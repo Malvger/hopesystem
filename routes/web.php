@@ -49,9 +49,7 @@ Route::resource('estudiosocioeconimico', 'EstudioSocioeconimicoController');
 Route::patch('estudiosocioeconimico/{id}/edit', 'EstudioSocioeconimicoController@update')->name('estudiosocioeconimico.update');
 
 
-Route::get('cursos/{id}/notas', 'CursoController@notas')->name('cursos.notas');
-// Route::patch('cursos/{id}/notas', 'CursoController@notas')->name('cursos.notas');
-Route::post('cursos/{id}/notas', 'CursoController@notas')->name('cursos.notas');
+
 
 Route::resource('cursos', 'CursoController');
 Route::patch('cursos/{id}/edit', 'CursoController@update')->name('cursos.update'); 
@@ -65,8 +63,11 @@ Route::resource('notas', 'NotasController');
 Route::patch('notas/{id}/edit', 'NotasController@update')->name('notas.update'); 
 Route::POST('notas/create', 'NotasController@create')->name('notas.create'); 
 
-Route::get('aogrado/{id}', 'AoGradoController@index')->name('aogrado.index');
+Route::get('cursos/{id}/{ano}/notas', 'CursoController@notas')->name('cursos.notas');
+Route::post('cursos/{id}/{ano}/notas', 'CursoController@notas')->name('cursos.notas');
 
+Route::get('aogrado/{id}', 'AoGradoController@index')->name('aogrado.index');
+Route::patch('aogrado/{id}', 'AoGradoController@update')->name('aogrado.update'); 
 // Route::resource('aogrado', 'AoGradoController');
 // Route::patch('aogrado/{id}/edit', 'AoGradoController@update')->name('aogrado.update'); 
 
@@ -76,5 +77,5 @@ Route::resource('reportes', 'ReportesController');
 Route::name('reportenota')->get('/imprimir-informe-notas', 'CursoController@reporteNotas');
 
 
-Route::get('cursos/{id}/reportes', 'CursoController@reporteNotas');
+Route::get('cursos/{id}/{ano}/reportes', 'CursoController@reporteNotas');
 

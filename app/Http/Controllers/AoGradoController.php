@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\AoGrado;
+use App\estudiante;
+use App\Grado;
+use App\Ciclo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -29,8 +32,16 @@ class AoGradoController extends Controller
         ->where('Estudiante','=', $id)
         ->get();
         // $datos['id'] = $id;
+        $estudiante = estudiante::select('PrimerNombre','SegundoNombre','ApellidoPaterno','ApellidoMaterno' )
+        ->where('id','=', $id)
+        ->get();
+        $grados = Ciclo::join("grados", "ciclos.id", "=", "grados.ciclo")
+        ->select("grados.id",'grados.grado','ciclos.ciclo')
+        ->orderBy('ciclos.ciclo', 'ASC')
+        ->orderBy('grados.grado', 'ASC')
+        ->get();
 
-        return view('aogrado.index', compact('aogrado'));
+        return view('aogrado.index', compact('aogrado','estudiante','grados', 'id'));
         
         
     }
@@ -90,6 +101,27 @@ class AoGradoController extends Controller
     {
         //
         //return view('aogrado.index', $id);
+        $datos=request()->except('_token','_method');
+        $datos['Estudiante']=$id;
+        // dd($datos);
+        $aogrado = AoGrado::where('Ano','=', $datos['ano'])
+        ->where('Estudiante','=', $id)
+        ->get();
+        if (sizeof($aogrado)>0){
+            AoGrado::where('Ano','=', $datos['ano'])
+            ->where('Estudiante','=', $id)
+            ->update($datos);
+        }else {
+            AoGrado::insertOrIgnore($datos);
+        }
+        // dd(sizeof($aogrado));
+
+        // dd($aogrado);
+
+        //
+
+        return redirect()->route('aogrado.index',$id);
+        // return view('aogrado.index', compact('id'));
     }
 
     /**

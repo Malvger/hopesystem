@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('NOTAS') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('/cursos/'.$curso.'/notas') }}">
+                    <form method="POST" action="{{ url('/cursos/'.$curso. '/' . $ano .'/notas') }}">
                         {{ csrf_field() }}
                         @include('notas.form', ['Modo'=>'crear'])
                     </form>

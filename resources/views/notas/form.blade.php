@@ -21,7 +21,7 @@
             <input name="id" type="hidden" value="{{isset($id)?$id:'' }}">
             <input name="estudiante" type="hidden" value="{{isset($estudiante)?$estudiante:'' }}">
             <input name="curso" type="hidden" value="{{isset($curso)?$curso:'' }}">
-
+            <input name="ano" type="hidden" value="{{isset($ano)?$ano:'' }}">
             </td>
         </tr>
         <tr class="bg-secondary text-white">

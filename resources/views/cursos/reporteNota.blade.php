@@ -17,9 +17,6 @@
                 <h1 class="text-center">{{ __('REPORTE DE NOTAS') }}</h1>
                 <hr align="center" size="2" width="100%" />
 
-                <!-- <p>{{$datos[0]}}</p> -->
-                <!-- <p>{{$dat}}</p> -->
-                <!-- <p>{{$req}}</p> -->
                 <br>
                 <table class="table table-bordered table-sm col-6">
                     <thead class="table-active">

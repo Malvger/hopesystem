@@ -6,7 +6,7 @@
       <a class="nav-item nav-link" id="nav-sFisica-tab" data-toggle="tab" href="#nav-sFisica" role="tab" aria-controls="nav-sFisica" aria-selected="false">SALUD FÍSICA</a>
       <a class="nav-item nav-link" id="nav-dFamiliar-tab" data-toggle="tab" href="#nav-dFamiliar" role="tab" aria-controls="nav-dFamiliar" aria-selected="false">DINÁMICA FAMILIAR</a>
       <a class="nav-item nav-link" id="nav-observaciones-tab" data-toggle="tab" href="#nav-observaciones" role="tab" aria-controls="nav-observaciones" aria-selected="false">OBSERVACIONES</a>
-      <a class="nav-item nav-link" id="nav-asignacion-tab" data-toggle="tab" href="#nav-asignacion" role="tab" aria-controls="nav-asignacion" aria-selected="false">ASIGNACIÓN DE GRADO</a>
+      <a class="nav-item nav-link" id="nav-asignacion-tab" data-toggle="tab" href="#nav-asignacion" role="tab" aria-controls="nav-asignacion" aria-selected="false">GRADO</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">

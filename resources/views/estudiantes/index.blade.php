@@ -54,12 +54,9 @@ padding-bottom: 2px;
               <tr>
                 <th>#</th>
                 <th>Nombre</th>
-                <th>Ciclo / Grado</th>
+                <!-- <th>Ciclo / Grado</th> -->
                 <th>CUI</th>
-                {{-- <th>Primer Nombre</th>
-                <th>Segundo Nombre</th>
-                <th>Apellido Paterno</th>
-                <th>Apellido Materno</th> --}}
+
                 <th>Sexo</th>
                 <th>Edad</th>
                 <th>Acciones</th>
@@ -70,16 +67,14 @@ padding-bottom: 2px;
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$estudiante->ApellidoPaterno}} {{$estudiante->ApellidoMaterno}}, {{$estudiante->PrimerNombre}} {{$estudiante->SegundoNombre}}</td>
-                    <td>{{$estudiante->ciclo}} / {{$estudiante->grado}} </td>
+                    <!-- <td>{{$estudiante->ciclo}} / {{$estudiante->grado}} </td> -->
                     <td>{{$estudiante->CUI}}</td>
-                    {{-- <td>{{$estudiante->PrimerNombre}}</td>
-                    <td>{{$estudiante->SegundoNombre}}</td>
-                    <td>{{$estudiante->ApellidoPaterno}}</td>
-                    <td>{{$estudiante->ApellidoMaterno}}</td> --}}
+
                     <td>{{$estudiante->Sexo}}</td>
                     <td>{{$estudiante->Edad}}</td>
                     <td><a href="{{url('/estudiantes/'.$estudiante->id.'/edit')}}" > <i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
                         <a href="{{route('imprimir-informe-estudiante', $estudiante->id)}}" target="_blank"> <i class="fa fa-print ml-3"  placeholder="Imprimir"></i> </a>
+                        <a href="{{url('aogrado', $estudiante->id)}}"> <i class="fa fa-graduation-cap ml-3"  placeholder="Grado"></i> </a>
                         
                         <form method="POST" action="{{ url('/estudiantes/'.$estudiante->id) }}"  class="d-inline form-eliminar">
                           @csrf

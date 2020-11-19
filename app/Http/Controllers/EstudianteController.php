@@ -50,10 +50,9 @@ class EstudianteController extends Controller
         //
 
        // $datos['estudiantes']=estudiante::all();
-       $datos['estudiantes'] = estudiante::join("grados", "grados.id", "=", "estudiantes.grado")
-       ->join("ciclos", "ciclos.id", "=", "grados.ciclo")
-       ->select("estudiantes.id","estudiantes.ApellidoPaterno","estudiantes.ApellidoMaterno","estudiantes.PrimerNombre","estudiantes.SegundoNombre",
-                 "estudiantes.CUI","estudiantes.Sexo","estudiantes.Edad","ciclos.ciclo", "grados.grado"
+       $datos['estudiantes'] = estudiante::select("estudiantes.id","estudiantes.ApellidoPaterno","estudiantes.ApellidoMaterno",
+                 "estudiantes.PrimerNombre","estudiantes.SegundoNombre",
+                 "estudiantes.CUI","estudiantes.Sexo","estudiantes.Edad"
        )
        ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
        ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
@@ -92,9 +91,14 @@ class EstudianteController extends Controller
         ->orderBy('ciclos.ciclo', 'ASC')
         ->orderBy('grados.grado', 'ASC')
         ->get();
+
+        $aogrado = AoGrado::join("grados", "ao_grados.Grado", "=", "grados.id")
+        ->select('grados.grado','ao_grados.Ano')
+        ->where('Estudiante','=', 2)
+        ->get();
     
 
-        return view('estudiantes.create', compact('grados'));
+        return view('estudiantes.create', compact('grados','aogrado'));
 
         // return view('estudiantes.edit', compact('estudiante','grados'));
 
@@ -170,17 +174,13 @@ class EstudianteController extends Controller
         //
 
         $estudiante=estudiante::findOrFail($id);
-        $grados = Ciclo::join("grados", "ciclos.id", "=", "grados.ciclo")
-        ->select("grados.id",'grados.grado','ciclos.ciclo')
-        ->orderBy('ciclos.ciclo', 'ASC')
-        ->orderBy('grados.grado', 'ASC')
-        ->get();
+
         $aogrado = AoGrado::join("grados", "ao_grados.Grado", "=", "grados.id")
         ->select('grados.grado','ao_grados.Ano')
         ->where('Estudiante','=', 2)
         ->get();
 
-        return view('estudiantes.edit', compact('estudiante','grados','aogrado'));
+        return view('estudiantes.edit', compact('estudiante','aogrado'));
 
     }
 
@@ -226,27 +226,7 @@ class EstudianteController extends Controller
 
         estudiante::where('id','=', $id)->update($datosEstudiante);
 
-
-
-        $estudiante=estudiante::findOrFail($id);
-
-        
-
-        // return $datosEstudiante;
-
-
-
-        // return view('estudiantes.edit', compact('estudiante'));
-        $grados = Ciclo::join("grados", "ciclos.id", "=", "grados.ciclo")
-        ->select("grados.id",'grados.grado','ciclos.ciclo')
-        ->orderBy('ciclos.ciclo', 'ASC')
-        ->orderBy('grados.grado', 'ASC')
-        ->get();
-
-
-        return view('estudiantes.edit', compact('estudiante','grados'));
-
-
+        return redirect()->route('estudiantes.edit',$id);
 
     }
 
@@ -286,29 +266,10 @@ class EstudianteController extends Controller
         // $pdf->loadHTML('<h1>Test</h1>');
         // return $pdf->download('invoice.pdf');
          $datos['estudiantes']=estudiante::All();  
-        //  $pdf = app('dompdf.wrapper');
          $pdf = \PDF::loadView('estudiantes.pdf', compact('datos'));
-         //return $pdf->setPaper('a4')->stream();
-        //  return $pdf.'';
+
          return $pdf->download('informeestudiantes.pdf');
-        //return $pdf->download();
 
-        // $pdf = \PDF::loadHTML('<h1>Test</h1>');
-        // return $pdf->stream();
-        // return $pdf->download('informeestudiantes.pdf');
-
-        // $datos['estudiantes'] = estudiante::join("grados", "grados.id", "=", "estudiantes.grado")
-        // ->join("ciclos", "ciclos.id", "=", "grados.ciclo")
-        // ->select("estudiantes.id","estudiantes.ApellidoPaterno","estudiantes.ApellidoMaterno","estudiantes.PrimerNombre","estudiantes.SegundoNombre",
-        //           "estudiantes.CUI","estudiantes.Sexo","estudiantes.Edad","ciclos.ciclo", "grados.grado"
-        // )
-        // ->orderBy('estudiantes.ApellidoPaterno', 'ASC')
-        // ->orderBy('estudiantes.ApellidoMaterno', 'ASC')
-        // ->orderBy('estudiantes.PrimerNombre', 'ASC')
-        // ->orderBy('estudiantes.SegundoNombre', 'ASC')
-        // ->get();
-        // $pdf = \PDF::loadView('estudiantes.index',$datos);
-        // return $pdf->download('informeestudiantes.pdf');
     }
 
     public function imprimirInformePdf($id)
