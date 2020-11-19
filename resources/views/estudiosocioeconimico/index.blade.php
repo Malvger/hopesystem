@@ -60,7 +60,7 @@ padding-bottom: 2px;
                     <td>{{$loop->iteration}}</td>
                     <td>{{$estudio->Apellidos}}, {{$estudio->Nombres}}</td>
                     <td><a href="{{url('/estudiosocioeconimico/'.$estudio->id.'/edit')}}"><i class="fa fa-edit" aria-hidden="true" placeholder="Editar"></i> </a>
-                        <a href="{{route('imprimir-informe-esocioeconomico', $estudio->id)}}" target="_blank"> <i class="fa fa-print ml-3 disabled"  placeholder="Imprimir"></i> </a>
+                        <a href="{{route('imprimir-informe-esocioeconomico', $estudio->id)}}" target="_blank"> <i class="fa fa-print ml-3"  placeholder="Imprimir"></i> </a>
                         <form method="POST" action="{{ url('/estudiosocioeconimico/'.$estudio->id) }}"  class="d-inline form-eliminar">
                           @csrf
                           @method('DELETE')
